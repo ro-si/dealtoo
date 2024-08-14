@@ -1,24 +1,26 @@
-<!-- /*
-* Template Name: Blogy
-* Template Author: Untree.co
-* Template URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Untree.co">
-  <link rel="shortcut icon" href="favicon.png">
+    <meta charset="utf-8" />
+    <title> Blog-dealtoo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML, Tailwindcss Blog Section, Blog Section For Tailwind CSS Template Section" name="description" />
+    <meta content="Techzaa" name="author" />
 
-  <meta name="description" content="" />
-  <meta name="keywords" content="bootstrap, bootstrap5" />
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Font Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Style css -->
+    <link href="assets/css/style.min.css" rel="stylesheet" type="text/css">
+
+
+
+    {{--  --}}
 
   <link rel="stylesheet" href="fonts/icomoon/style.css">
   <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
@@ -26,430 +28,258 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
   <link rel="stylesheet" href="css/tiny-slider.css">
-  <link rel="stylesheet" href="css/aos.css">
-  <link rel="stylesheet" href="css/glightbox.min.css">
+  
   <link rel="stylesheet" href="css/style.css">
 
-  <link rel="stylesheet" href="css/flatpickr.min.css">
+<style>
+    span{
+        color: orange;
+    }
+    .container h2{
+        font-size: 40px;
+    }
+
+    
+    .text-container {
+  position: relative;
+  overflow: hidden;
+}
+
+#animated-text {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+</style>
 
 
-  <!-- CSS Bootstrap -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-<!-- JavaScript jQuery et Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-
-  <title>Blogy &mdash; Free Bootstrap 5 Website Template by Untree.co</title>
+  
 </head>
-<body>
 
-  <div class="site-mobile-menu site-navbar-target">
-    <div class="site-mobile-menu-header">
-      <div class="site-mobile-menu-close">
-        <span class="icofont-close js-menu-toggle"></span>
+<body class="font-body">
+
+    @include('layout.nav')
+    <div class="banner" >
+        <img src="{{ asset('/assets/help-image/help-banner-2.jpg') }}" alt="">
       </div>
-    </div>
-    <div class="site-mobile-menu-body"></div>
-  </div>
+   
+    <!-- Start Blog -->
+    <section id="demo" class="py-28">
+        <div class="container">
+            <div class="max-w-md mx-auto text-center relative overflow-hidden h-16 text-container">
+                <h2 class="text-3xl">"Les Tendances du Moment sur <span>Dealtoo</span>  "</h2>
+                <p id="animated-text" class="font-medium mt-2 mb-6"></p>
+            </div><!-- end max-w -->
 
-  <nav class="site-nav">
-    <div class="container">
-      <div class="menu-bg-wrap">
-        <div class="site-navigation">
-          <div class="row g-0 align-items-center">
-            <div class="col-2">
-              <a href="index.html" class="logo m-0 float-start">Blogy<span class="text-primary">.</span></a>
-            </div>
-            <div class="col-8 text-center">
-              <form action="#" class="search-form d-inline-block d-lg-none">
-                <input type="text" class="form-control" placeholder="Search...">
-                <span class="bi-search"></span>
-              </form>
+            <div class="relative">
+                <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 mt-14">
+                        
+                            {{-- @foreach($articles as $article)
+                                <div class="shadow bg-white  overflow-hidden">
+                                    <div class="relative">
+                                        @if($article->image)
+                                            <img src="{{ asset('assets/' . $article->image) }}" alt="{{ $article->title }}" class="w-full h-64 object-cover" class="w-[1380px] h-[920px] object-cover">
+                                            
+                                            @else
+                                            <img src="path/to/default-image.jpg" alt="Default Image" class="w-full h-64 object-cover">
+                                        @endif
+                                        <div class="absolute inset-x-0 top-auto bottom-0 ">
+                                            <div class=" inline-block p-4">
+                                                <div class="flex items-center gap-3">
+                                                    {{-- <div>
+                                                        <img src="assets/images/user/img-1.jpg" class="h-10 w-10 rounded-full" alt="">
+                                                    </div> --}}
+                                                    {{-- <div>
+                                                        <h4 class="text-gray-800">Andrea William</h4>
+                                                        <h5 class="text-sm  text-gray-500">Designer</h5>
+                                                    </div> --}}
+                                                {{-- </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-4 p-6">
+                                            <div class="w-20">
+                                                <hr class="border-[1px] border-blue-500 mt-4">
+                                            </div>
+                                            <div >
+                                                <h2 class="text-xl ">{{ $article->title }}</h2>
+                                                <p class="font-medium mt-2 mb-6">{{ $article->body }}</p>
+                                                <a href="{{ url('/detail') }}" class="flex items-center gap-2 text-base font-medium text-blue-500 hover:text-blue-600 transition-all duration-500">
+                                                    Lire plus
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                    
+                                    </div>
+                                </div> --}}
+                            {{-- @endforeach --}} 
+                       
+                    
+                    
 
-              <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
-                <li><a href="index.html">Home</a></li>
-                 <!-- Bouton pour ajouter un article -->
-            
-                 
-
-                <li class="has-children active">
-                  <a href="category.html">Pages</a>
-                  <ul class="dropdown">
-                    <li><a href="search-result.html">Search Result</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li class="active"><a href="single.html">Blog Single</a></li>
-                    <li><a href="category.html">Category</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li class="has-children">
-                      <a href="#">Dropdown</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Sub Menu One</a></li>
-                        <li><a href="#">Sub Menu Two</a></li>
-                        <li><a href="#">Sub Menu Three</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="category.html">Culture</a></li>
-                <li><a href="category.html">Business</a></li>
-                <li><a href="category.html">Politics</a></li>
-                
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addArticleModal">
-                    Ajouter un Article
-                </button>
-              </ul>
-            </div>
-            <div class="col-2 text-end">
-              <a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
-                <span></span>
-              </a>
-               <form action="#" class="search-form d-none d-lg-inline-block">
-                <input type="text" class="form-control" placeholder="Search...">
-                <span class="bi-search"></span>
-              </form> 
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-
-  <!-- Modale pour ajouter un article -->
-  <div class="modal fade" id="addArticleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ajouter un Nouvel Article</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-            <form action="{{ route('article.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="title">Titre</label>
-                        <input type="text" class="form-control" id="title" name="title" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="body">Contenu</label>
-                        <textarea class="form-control" id="body" name="body" rows="4" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="category_id">Catégorie</label>
-                        <input type="number" class="form-control" id="category_id" name="category_id" required>
-                    </div>
                    
-                    <div class="form-group">
-                        <label for="published_at">Publié le</label>
-                        <input type="datetime-local" class="form-control" id="published_at" name="published_at">
-                    </div>
-                    <div class="form-group">
-                      <label for="image">Image</label>
-                      <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
-                  </div>
+                    
+                    <!-- end grid-cols -->
+                </div><!-- end grid -->
+
+                <div>
+                    <div class="hidden md:block">
+                        <div class="after:w-32 after:h-32 after:absolute after:-top-12 after:-start-12 after:-z-10 after:bg-[url('../images/dot3.svg')]"></div>
+                    </div><!-- end dots -->
+                    <div class="hidden md:block">
+                        <div class="after:w-32 after:h-32 after:absolute after:-bottom-12  after:-end-16 after:-z-10 after:bg-[url('../images/dot3.svg')]"></div>
+                    </div><!-- end dots -->
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Ajouter</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                </div>
-            </form>
+            </div><!-- end relative -->
+        </div><!-- end container -->
+    </section>
+    <!-- End Blog -->
 
-        </div>
-    </div>
-</div>
+  
 
-  <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('images/hero_5.jpg');">
-    <div class="container">
-      <div class="row same-height justify-content-center">
-        <div class="col-md-6">
-          <div class="post-entry text-center">
-            <h1 class="mb-4">Don’t assume your user data in the cloud is safe</h1>
-            <div class="post-meta align-items-center text-center">
-              <figure class="author-figure mb-0 me-3 d-inline-block"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
-              <span class="d-inline-block mt-1">By Carl Atkinson</span>
-              <span>&nbsp;-&nbsp; February 10, 2019</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  
+    
 
-  <section class="section">
-    <div class="container">
+    
 
-      <div class="row blog-entries element-animate">
+    
+    <!-- Start Blog-6 -->
+    <section class="py-28">
+        <div class="container">
+            <div class="max-w-md  mx-auto text-center">
+                <h2 class="text-3xl font-bold">Blog Section 6</h2>
+                <p class="text-base font-medium text-gray-500 mt-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div><!-- end max-w -->
 
-        <div class="col-md-12 col-lg-8 main-content">
-
-          <div class="post-content-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium nam quas inventore, ut iure iste modi eos adipisci ad ea itaque labore earum autem nobis et numquam, minima eius. Nam eius, non unde ut aut sunt eveniet rerum repellendus porro.</p>
-            <p>Sint ab voluptates itaque, ipsum porro qui obcaecati cumque quas sit vel. Voluptatum provident id quis quo. Eveniet maiores perferendis officia veniam est laborum, expedita fuga doloribus natus repellendus dolorem ab similique sint eius cupiditate necessitatibus, magni nesciunt ex eos.</p>
-            <p>Quis eius aspernatur, eaque culpa cumque reiciendis, nobis at earum assumenda similique ut? Aperiam vel aut, ex exercitationem eos consequuntur eaque culpa totam, deserunt, aspernatur quae eveniet hic provident ullam tempora error repudiandae sapiente illum rerum itaque voluptatem. Commodi, sequi.</p>
-            <div class="row my-4">
-              <div class="col-md-12 mb-4">
-                <img src="images/hero_1.jpg" alt="Image placeholder" class="img-fluid rounded">
-              </div>
-              <div class="col-md-6 mb-4">
-                <img src="images/img_2_horizontal.jpg" alt="Image placeholder" class="img-fluid rounded">
-              </div>
-              <div class="col-md-6 mb-4">
-                <img src="images/img_3_horizontal.jpg" alt="Image placeholder" class="img-fluid rounded">
-              </div>
-            </div>
-            <p>Quibusdam autem, quas molestias recusandae aperiam molestiae modi qui ipsam vel. Placeat tenetur veritatis tempore quos impedit dicta, error autem, quae sint inventore ipsa quidem. Quo voluptate quisquam reiciendis, minus, animi minima eum officia doloremque repellat eos, odio doloribus cum.</p>
-            <p>Temporibus quo dolore veritatis doloribus delectus dolores perspiciatis recusandae ducimus, nisi quod, incidunt ut quaerat, magnam cupiditate. Aut, laboriosam magnam, nobis dolore fugiat impedit necessitatibus nisi cupiditate, quas repellat itaque molestias sit libero voluptas eveniet omnis illo ullam dolorem minima.</p>
-            <p>Porro amet accusantium libero fugit totam, deserunt ipsa, dolorem, vero expedita illo similique saepe nisi deleniti. Cumque, laboriosam, porro! Facilis voluptatem sequi nulla quidem, provident eius quos pariatur maxime sapiente illo nostrum quibusdam aliquid fugiat! Earum quod fuga id officia.</p>
-            <p>Illo magnam at dolore ad enim fugiat ut maxime facilis autem, nulla cumque quis commodi eos nisi unde soluta, ipsa eius aspernatur sint atque! Nihil, eveniet illo ea, mollitia fuga accusamus dolor dolorem perspiciatis rerum hic, consectetur error rem aspernatur!</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus magni explicabo id molestiae, minima quas assumenda consectetur, nobis neque rem, incidunt quam tempore perferendis provident obcaecati sapiente, animi vel expedita omnis quae ipsa! Obcaecati eligendi sed odio labore vero reiciendis facere accusamus molestias eaque impedit, consequuntur quae fuga vitae fugit?</p>
-          </div>
-
-
-          <div class="pt-5">
-            <p>Categories:  <a href="#">Food</a>, <a href="#">Travel</a>  Tags: <a href="#">#manila</a>, <a href="#">#asia</a></p>
-          </div>
-
-
-        
-
-        </div>
-
-        <!-- END main-content -->
-
-        <div class="col-md-12 col-lg-4 sidebar">
-          <div class="sidebar-box search-form-wrap">
-            <form action="#" class="sidebar-search-form">
-              <span class="bi-search"></span>
-              <input type="text" class="form-control" id="s" placeholder="Type a keyword and hit enter">
-            </form>
-          </div>
-          <!-- END sidebar-box -->
-          <div class="sidebar-box">
-            <div class="bio text-center">
-              <img src="images/person_2.jpg" alt="Image Placeholder" class="img-fluid mb-3">
-              <div class="bio-body">
-                <h2>Hannah Anderson</h2>
-                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias minus.</p>
-                <p><a href="#" class="btn btn-primary btn-sm rounded px-2 py-2">Read my bio</a></p>
-                <p class="social">
-                  <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
-                  <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
-                  <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
-                  <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
-                </p>
-              </div>
-            </div>
-          </div>
-          <!-- END sidebar-box -->  
-          <div class="sidebar-box">
-            <h3 class="heading">Popular Posts</h3>
-            <div class="post-entry-sidebar">
-              <ul>
-                <li>
-                  <a href="">
-                    <img src="images/img_1_sq.jpg" alt="Image placeholder" class="me-4 rounded">
-                    <div class="text">
-                      <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-                      <div class="post-meta">
-                        <span class="mr-2">March 15, 2018 </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <img src="images/img_2_sq.jpg" alt="Image placeholder" class="me-4 rounded">
-                    <div class="text">
-                      <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-                      <div class="post-meta">
-                        <span class="mr-2">March 15, 2018 </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <img src="images/img_3_sq.jpg" alt="Image placeholder" class="me-4 rounded">
-                    <div class="text">
-                      <h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-                      <div class="post-meta">
-                        <span class="mr-2">March 15, 2018 </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- END sidebar-box -->
-
-          <div class="sidebar-box">
-            <h3 class="heading">Categories</h3>
-            <ul class="categories">
-              <li><a href="#">Food <span>(12)</span></a></li>
-              <li><a href="#">Travel <span>(22)</span></a></li>
-              <li><a href="#">Lifestyle <span>(37)</span></a></li>
-              <li><a href="#">Business <span>(42)</span></a></li>
-              <li><a href="#">Adventure <span>(14)</span></a></li>
-            </ul>
-          </div>
-          <!-- END sidebar-box -->
-
-          <div class="sidebar-box">
-            <h3 class="heading">Tags</h3>
-            <ul class="tags">
-              <li><a href="#">Travel</a></li>
-              <li><a href="#">Adventure</a></li>
-              <li><a href="#">Food</a></li>
-              <li><a href="#">Lifestyle</a></li>
-              <li><a href="#">Business</a></li>
-              <li><a href="#">Freelancing</a></li>
-              <li><a href="#">Travel</a></li>
-              <li><a href="#">Adventure</a></li>
-              <li><a href="#">Food</a></li>
-              <li><a href="#">Lifestyle</a></li>
-              <li><a href="#">Business</a></li>
-              <li><a href="#">Freelancing</a></li>
-            </ul>
-          </div>
-        </div>
-        <!-- END sidebar -->
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Start posts-entry -->
-  <section class="section posts-entry posts-entry-sm bg-light">
-    <div class="container">
-      <div class="row mb-4">
-        <div class="col-12 text-uppercase text-black">More Blog Posts</div>
-      </div>
-
-{{-- rosine --}}
-    <div class="container"> 
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        <div class="row">
-            @foreach($articles as $article)
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                      @if($article->image)
-                            <img src="{{ asset('assets/' . $article->image) }}" class="card-img-top" alt="{{ $article->title }}">
-                        @endif
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $article->title }}</h5>
-                            <p class="card-text">{{ $article->body }}</p>
-                            <a href="#" class="btn btn-primary">Lire plus</a>
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6 mt-14">
+                <div class="shadow bg-white rounded-md">
+                    <div class="relative">
+                        <div class="absolute top-0 start-0 p-2">
+                            <span class="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-xl text-[13px] font-medium rounded-full text-white py-1 px-2"><span class="w-1.5 h-1.5 inline-block bg-white rounded-full"></span> 12 Aug 2022</span>
+                        </div>
+                        <img src="assets/images/blog-17.jpg" class="rounded-md" alt="">
+                        <div class="absolute inset-x-0 top-auto bottom-0 p-2">
+                            <div class="bg-white/50 backdrop-blur-xl p-4 rounded-md">
+                                <div class="text-white text-center">
+                                    <h4 class="text-2xl font-semibold">Sales buildings</h4>
+                                    <p class="text-base font-medium mt-3">Lorenm ipsum dolor sit amet consectetur. Vitae <a href="{{ url('/blog') }}" class="underline">Read more</a></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
-    </div>
 
-      <div class="row">
-        <div class="col-md-6 col-lg-3">
-          <div class="blog-entry">
-            <a href="single.html" class="img-link">
-              <img src="images/img_1_horizontal.jpg" alt="Image" class="img-fluid">
-            </a>
-            <span class="date">Apr. 14th, 2022</span>
-            <h2><a href="single.html">Thought you loved Python? Wait until you meet Rust</a></h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p><a href="#" class="read-more">Continue Reading</a></p>
-          </div>
+                <div class="shadow bg-white rounded-md">
+                    <div class="relative">
+                        <div class="absolute top-0 start-0 p-2">
+                            <span class="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-xl text-[13px] font-medium rounded-full text-white py-1 px-2"><span class="w-1.5 h-1.5 inline-block bg-white rounded-full"></span> 15 Aug 2022</span>
+                        </div>
+                        <img src="assets/images/blog-18.jpg" class="rounded-md" alt="">
+                        <div class="absolute inset-x-0 top-auto bottom-0 p-2">
+                            <div class="bg-white/50 backdrop-blur-xl p-4 rounded-md">
+                                <div class="text-white text-center">
+                                    <h4 class="text-2xl font-semibold">Read buildings</h4>
+                                    <p class="text-base font-medium mt-3">Lorenm ipsum dolor sit amet consectetur. Vitae <a href="{{ url('/blog') }}" class="underline">Read more</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shadow bg-white rounded-md">
+                    <div class="relative">
+                        <div class="absolute top-0 start-0 p-2">
+                            <span class="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-xl text-[13px] font-medium rounded-full text-white py-1 px-2"><span class="w-1.5 h-1.5 inline-block bg-white rounded-full"></span> 22   Aug 2022</span>
+                        </div>
+                        <img src="assets/images/blog-19.jpg" class="rounded-md" alt="">
+                        <div class="absolute inset-x-0 top-auto bottom-0 p-2">
+                            <div class="bg-white/50 backdrop-blur-xl p-4 rounded-md">
+                                <div class="text-white text-center">
+                                    <h4 class="text-2xl font-semibold">Buy buildings</h4>
+                                    <p class="text-base font-medium mt-3">Lorenm ipsum dolor sit amet consectetur. Vitae <a href="{{ url('/blog') }}" class="underline">Read more</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="blog-entry">
-            <a href="single.html" class="img-link">
-              <img src="images/img_2_horizontal.jpg" alt="Image" class="img-fluid">
-            </a>
-            <span class="date">Apr. 14th, 2022</span>
-            <h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p><a href="#" class="read-more">Continue Reading</a></p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="blog-entry">
-            <a href="single.html" class="img-link">
-              <img src="images/img_3_horizontal.jpg" alt="Image" class="img-fluid">
-            </a>
-            <span class="date">Apr. 14th, 2022</span>
-            <h2><a href="single.html">UK sees highest inflation in 30 years</a></h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p><a href="#" class="read-more">Continue Reading</a></p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="blog-entry">
-            <a href="single.html" class="img-link">
-              <img src="images/img_4_horizontal.jpg" alt="Image" class="img-fluid">
-            </a>
-            <span class="date">Apr. 14th, 2022</span>
-            <h2><a href="single.html">Don’t assume your user data in the cloud is safe</a></h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p><a href="#" class="read-more">Continue Reading</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End posts-entry -->
+    </section>
+    <!-- End Blog-6 -->
 
 
-  @include('layout.footer')
-  
 
-    <!-- Preloader -->
-    <div id="overlayer"></div>
-    <div class="loader">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
+    @include('layout.footer')
+    
 
-{{-- rosine --}}
+    {{-- <footer class="py-8 bg-slate-100">
+        <div class="container">
+            <div class="flex">
+                <div class="w-full">
+                    <div class="text-center">
+                        <p class="text-muted"> ©
+                            <script>document.write(new Date().getFullYear())</script> Blogez. By <a class="font-medium"
+                                href="#">Techzaa</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+        </div><!-- end container -->
+    </footer> --}}
+
+
+    
+
     <script>
-        $(document).ready(function(){
-            $('#openModalBtn').click(function(){
-                $('#addArticleModal').modal('show');
-            });
-        });
+   document.addEventListener('DOMContentLoaded', function() {
+  const phrases = [
+    "Ce que Vous Devez Savoir",
+    "Voici mon premier texte",
+    "Une autre phrase intéressante",
+    "Découvrez nos nouveautés"
+    // Ajoutez d'autres phrases si nécessaire
+  ];
+
+  const element = document.getElementById('animated-text');
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let typing = true;
+
+  function typeEffect() {
+    if (typing) {
+      // Tape les caractères
+      element.textContent += phrases[phraseIndex].charAt(charIndex);
+      charIndex++;
+      if (charIndex > phrases[phraseIndex].length) {
+        typing = false;
+        setTimeout(typeEffect, 1000); // Pause avant de supprimer le texte
+      } else {
+        setTimeout(typeEffect, 100); // Vitesse de frappe
+      }
+    } else {
+      // Efface les caractères
+      element.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
+      charIndex--;
+      if (charIndex <= 0) {
+        typing = true;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(typeEffect, 500); // Pause avant de taper la prochaine phrase
+      } else {
+        setTimeout(typeEffect, 50); // Vitesse d'effacement
+      }
+    }
+  }
+
+  typeEffect(); // Démarrer l'animation
+});
+
+
     </script>
-    
+</body>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/tiny-slider.js"></script>
-
-    <script src="js/flatpickr.min.js"></script>
-
-
-    <script src="js/aos.js"></script>
-    <script src="js/glightbox.min.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/custom.js"></script>
-
-    
-  </body>
-  </html>
+</html>

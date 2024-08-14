@@ -39,6 +39,7 @@ html {
   font-variation-settings: normal; /* 6 */
 }
 
+
 /*
 1. Remove the margin in all browsers.
 2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
@@ -543,7 +544,7 @@ video {
 }
 .inset-x-0 {
   left: 0px;
-  right: 0px;
+  /* right: 0px; */
 }
 .bottom-0 {
   bottom: 0px;
