@@ -90,6 +90,13 @@
 }
 
 
+img.custom-size {
+    width: 500px;
+    height: 200px;
+    object-fit: cover; /* Cette propriété permet de remplir l'image tout en coupant les parties qui ne rentrent pas dans le cadre */
+    object-position: center; /* Centrer l'image si elle est recadrée */
+}
+
         </style>
 
 
@@ -116,40 +123,57 @@
     </section>
 
 
+ <!-- Contenu de la vue -->
+ @if($categories->isEmpty())
+ <!-- Affichage lorsque aucune catégorie n'est disponible -->
+ <div class="container">
+     <p>Aucune catégorie disponible pour le moment. Ajoutez une catégorie pour voir des articles.</p>
 
-    @foreach($categories as $category)
-    <section class="section">
-        <div class="container">
-            <div class="row mb-4">
-                <div class="col-sm-6">
-                    <h2 class="posts-entry-title">{{ $category->name }}</h2>
-                </div>
-                <div class="col-sm-6 text-sm-end"><a href="{{ route('category.show', ['id' => $category->id]) }}" class="read-more">Voir plus</a></div>
-            </div>
-            
-            <div class="row">
-                @forelse($category->articles as $article)
-                    <div class="col-lg-4 mb-4">
-                        <div class="post-entry-alt animate-on-hover">
-                            @if($article->image)
-                            <a href="{{ route('blog.detail', ['id' => $article->id]) }}" class="img-link">
-                                <img src="{{ asset('assets/' . $article->image) }}" alt="{{ $article->title }}" class="img-fluid w-[700px] h-[440px] object-cover img-hover-zoom">
-                            </a>
-                            @endif
-                            <div class="excerpt">
-                                <h2><a href="{{ route('blog.detail', ['id' => $article->id]) }}">{{ $article->title }}</a></h2>
-                                <p>{{ $article->body }}</p>
-                                <p><a href="{{ route('blog.detail', ['id' => $article->id]) }}" class="read-more">Voir plus</a></p>
-                            </div>
-                        </div>
-                    </div>
-                @empty
-                    <p>Aucun article trouvé dans cette catégorie.</p>
-                @endforelse
-            </div>
-        </div>
-    </section>
-@endforeach
+            @else
+            <!-- Affichage lorsque des catégories sont disponibles -->
+            @foreach($categories as $category)
+                @if($category->articles->isNotEmpty()) <!-- Vérifier que la catégorie a des articles -->
+                    <section class="section">
+                        <div class="container">
+                            <div class="row mb-4">
+                     <div class="col-sm-6">
+                         <h2 class="posts-entry-title">{{ $category->name }}</h2> <!-- Titre de la catégorie -->
+                     </div>
+                     <div class="col-sm-6 text-sm-end">
+                         <a href="" class="read-more">Voir plus</a>
+                     </div>
+                 </div>
+                 
+                 <div class="row">
+                     @forelse($category->articles as $article)
+                         <div class="col-lg-4 mb-4">
+                             <div class="post-entry-alt animate-on-hover">
+                                 @if($article->image)
+                                 <a href="" class="img-link">
+                                         <img src="{{ asset('assets/' . $article->image) }}" alt="{{ $article->title }}" class="img custom-size">
+                                     </a>
+                                 @endif
+                                 <div class="excerpt">
+                                     <h2><a href="{{ route('blog.detail', ['id' => $article->id]) }}">{{ $article->title }}</a></h2> <!-- Titre de l'article -->
+                                     <p>{{ $article->body }}</p>
+                                     <p><a href="{{ route('blog.detail', ['id' => $article->id]) }}" class="read-more">Voir plus</a></p>
+                                 </div>
+                             </div>
+                         </div>
+                     @empty
+                         <p>Aucun article trouvé dans cette catégorie.</p>
+                     @endforelse
+                 </div>
+             </div>
+         </div>
+         </section>
+         
+     @endif
+ @endforeach
+@endif
+
+
+
 
 
 

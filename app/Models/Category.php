@@ -12,4 +12,11 @@ class Category extends Model
 
     // Spécifiez le nom de la table si nécessaire
     protected $table = 'categories'; // Nom de la table
+    // Category.php
+
+public function articles()
+{
+    return $this->hasMany(Article::class);
+}
+
 }

@@ -45,8 +45,11 @@ class ArticleController extends Controller
     }
 
     public function index()
-{
-    $categories = Category::with('articles')->get();
-    return view('welcome', compact('categories'));
-}
+    {
+        // Récupère toutes les catégories avec leurs articles associés
+        $categories = Category::with('articles')->get();
+        
+        // Retourne la vue 'welcome' avec les catégories
+        return view('welcome', compact('categories'));
+    }
 }
