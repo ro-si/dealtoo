@@ -30,6 +30,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+
+
+
+
+
     <title>{{ $article->title }} - Blogy</title>
 
     <style>
@@ -70,6 +75,217 @@
             border-radius: 4px;
             /* Bordures arrondies */
         }
+
+        /*  */
+
+
+
+
+
+        .heading {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .post-entry-sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .similar-post-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+
+        .similar-post-image {
+            width: 80px;
+            /* Set a fixed size for the images */
+            height: 80px;
+            object-fit: cover;
+            /* Ensure images cover the entire area without distortion */
+            margin-right: 15px;
+            border-radius: 6px;
+        }
+
+        .text {
+            flex: 1;
+        }
+
+        .text h4 {
+            font-size: 1rem;
+            margin: 0;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .post-meta {
+            font-size: 0.875rem;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            .similar-post-image {
+                width: 50px;
+                height: 50px;
+            }
+
+            .text h4 {
+                font-size: 0.9rem;
+            }
+
+            .post-meta {
+                font-size: 0.75rem;
+            }
+        }
+
+
+
+        /*  */
+
+        /* Comments Section */
+        .comments-heading {
+            font-size: 1.75rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .comment-box {
+            /* background-color: #f8f9fa;
+            padding: 15px; */
+            margin-bottom: 15px;
+            border-radius: 8px;
+            /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+        }
+
+        .comment-author {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+
+        .comment-content {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .comment-date {
+            font-size: 0.875rem;
+            color: #888;
+        }
+
+        /* Comment Form */
+        .comment-form {
+            margin-top: 30px;
+        }
+
+        .comment-textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #333;
+            resize: vertical;
+            /* Allow vertical resize */
+        }
+
+        .comment-textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .login-prompt {
+            font-size: 1rem;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .login-prompt a {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        .login-prompt a:hover {
+            text-decoration: none;
+        }
+
+        /*  */
+
+        /* Style for the post entry sidebar */
+        .post-entry-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .post-entry-sidebar li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .post-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .post-image {
+            width: 80px;
+            /* Adjust width as needed */
+            height: 80px;
+            /* Adjust height as needed */
+            object-fit: cover;
+            /* Ensure the image covers the area */
+            margin-right: 15px;
+            /* Space between image and text */
+            border-radius: 8px;
+            /* Rounded corners */
+        }
+
+        .text {
+            flex: 1;
+        }
+
+        .text h4 {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            font-size: 14px;
+            color: #888;
+            /* Grey color for date */
+        }
     </style>
 </head>
 
@@ -104,49 +320,104 @@
 
                     </div>
                     <div class="post-content-body">
-                      {!! $article->body !!}
+                        {!! $article->body !!}
 
-                  </div>
-                  <div class="post-content-body">
-                    {!! $article->body !!}
+                    </div>
+                    <div class="post-content-body">
+                        {!! $article->body !!}
 
-                </div>
-                <div class="post-content-body">
-                  {!! $article->body !!}
+                    </div>
+                    <div class="post-content-body">
+                        {!! $article->body !!}
 
-              </div>
-              <div class="pt-5">
-                <p>Categories: <a href="#">Food</a>, <a href="#">Travel</a> Tags: <a
-                        href="#">#manila</a>, <a href="#">#asia</a></p>
-            </div>
-            <div class="pt-5">
-              <p>Categories: <a href="#">Food</a>, <a href="#">Travel</a> Tags: <a
-                      href="#">#manila</a>, <a href="#">#asia</a></p>
-          </div>
+                    </div>
                     <div class="pt-5">
                         <p>Categories: <a href="#">Food</a>, <a href="#">Travel</a> Tags: <a
                                 href="#">#manila</a>, <a href="#">#asia</a></p>
                     </div>
-                    <div class="comment-form-wrap pt-5">
-                      <h3 class="mb-5">Ajouter un commentaire</h3>
-                      <form action="#" class="p-5 bg-light">
-                          
-                          
-                         
-    
-                          <div class="form-group">
-                              <label for="message">Message</label>
-                              <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
-                          </div>
-                          <div class="form-group">
-                              <input type="submit" value="Publier" class="btn btn-primary">
-                          </div>
-    
-                      </form>
-                  </div>
+                    <div class="pt-5">
+                        <p>Categories: <a href="#">Food</a>, <a href="#">Travel</a> Tags: <a
+                                href="#">#manila</a>, <a href="#">#asia</a></p>
+                    </div>
+                    <div class="pt-5">
+                        <p>Categories: <a href="#">Food</a>, <a href="#">Travel</a> Tags: <a
+                                href="#">#manila</a>, <a href="#">#asia</a></p>
+                    </div>
+
+
+                    {{-- <h1>{{ $article->title }}</h1>
+                    <p>{{ $article->content }}</p> --}}
+
+
+
+                    {{--  post commentaire  --}}
+                    <h2 class="comments-heading">Commentaires</h2>
+
+                    <div id="comments-section">
+                        <!-- Initially visible comments -->
+                        @foreach ($comments->take(3) as $comment)
+                            <!-- Adjust the number to fit your design -->
+                            <div class="comment-box">
+                                <p class="comment-author"><strong>{{ $comment->user->name }}</strong></p>
+                                <p class="comment-content">{{ $comment->comment }}</p>
+                                <p class="comment-date"><em>{{ $comment->created_at->format('d M Y, H:i') }}</em></p>
+                            </div>
+                        @endforeach
+
+                        <!-- Additional comments hidden initially -->
+                        <div id="more-comments" style="display: none;">
+                            @foreach ($comments->skip(3) as $comment)
+                                <div class="comment-box">
+                                    <p class="comment-author"><strong>{{ $comment->user->name }}</strong></p>
+                                    <p class="comment-content">{{ $comment->comment }}</p>
+                                    <p class="comment-date"><em>{{ $comment->created_at->format('d M Y, H:i') }}</em>
+                                    </p>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <!-- Button to show more comments -->
+                        @if ($comments->count() > 3)
+                            <button id="show-more-comments" class="btn  mt-3">Voir plus de
+                                commentaires</button>
+                        @endif
+                    </div>
+
+                    @if (Auth::check())
+                        <form action="{{ route('comment.store') }}" method="POST" class="comment-form mt-4">
+                            @csrf
+                            <input type="hidden" name="article_id" value="{{ $article->id }}">
+                            <textarea name="comment" required class="comment-textarea" placeholder="Votre commentaire..."></textarea>
+                            <button type="submit" class="btn btn-primary">Poster un commentaire</button>
+                        </form>
+                    @else
+                        <p class="login-prompt">Vous devez <a href="{{ route('register') }}">vous connecter</a> pour
+                            poster un commentaire.</p>
+                    @endif
+
+                    @if (session('success'))
+                        <div class="alert alert-success mt-3">{{ session('success') }}</div>
+                    @endif
+
+
+
                 </div>
 
-               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 <div class="col-md-12 col-lg-4 sidebar">
 
@@ -165,95 +436,55 @@
                             <h3 class="heading">Post Populaire</h3>
                             <div class="post-entry-sidebar">
                                 <ul>
-                                    <li>
-                                        <a href="">
-                                            <img src="{{ asset('images/img_1_sq.jpg') }}" alt="Image placeholder"
-                                                class="me-4 rounded">
-                                            <div class="text">
-                                                <h4>Quibusdam autem, quas molestias recusandae aperiam molestiae modi
-                                                    qui ipsam vel</h4>
-                                                <div class="post-meta">
-                                                    <span class="mr-2">March 15, 2018 </span>
+                                    @foreach ($popularPosts as $post)
+                                        <li>
+                                            <a href="{{ route('blog.detail', $post->id) }}" class="post-link">
+                                                <img src="{{ asset('assets/' . $post->image) }}"
+                                                    alt="{{ $post->title }}" class="post-image">
+                                                <div class="text">
+                                                    <h4>{{ $post->title }}</h4>
+                                                    <div class="post-meta">
+                                                        <span
+                                                            class="mr-2">{{ $post->created_at->format('F j, Y') }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <img src="{{ asset('images/img_2_sq.jpg') }}" alt="Image placeholder"
-                                                class="me-4 rounded">
-                                            <div class="text">
-                                                <h4>Quibusdam autem, quas molestias recusandae aperiam molestiae modi
-                                                    qui ipsam vel</h4>
-                                                <div class="post-meta">
-                                                    <span class="mr-2">March 15, 2018 </span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <img src="{{ asset('images/img_3_sq.jpg') }}" alt="Image placeholder"
-                                                class="me-4 rounded">
-                                            <div class="text">
-                                                <h4>Quibusdam autem, quas molestias recusandae aperiam molestiae modi
-                                                    qui ipsam vel</h4>
-                                                <div class="post-meta">
-                                                    <span class="mr-2">March 15, 2018 </span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
+                                            </a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
+
+
+
+
 
                         <div class="sidebar-box">
                             <h3 class="heading">Post Similaire</h3>
                             <div class="post-entry-sidebar">
                                 <ul>
-                                    <li>
-                                        <a href="">
-                                            <img src="{{ asset('images/img_1_sq.jpg') }}" alt="Image placeholder"
-                                                class="me-4 rounded">
-                                            <div class="text">
-                                                <h4>Quibusdam autem, quas molestias recusandae aperiam molestiae modi
-                                                    qui ipsam vel</h4>
-                                                <div class="post-meta">
-                                                    <span class="mr-2">March 15, 2018 </span>
+                                    @foreach ($similarPosts as $post)
+                                        <li class="similar-post-item">
+                                            <a href="{{ route('blog.detail', $post->id) }}">
+                                                <img src="{{ asset('assets/' . $post->image) }}"
+                                                    alt="{{ $post->title }}" class="similar-post-image">
+                                                <div class="text">
+                                                    <h4>{{ $post->title }}</h4>
+                                                    <div class="post-meta">
+                                                        <span
+                                                            class="mr-2">{{ $post->created_at->format('F j, Y') }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <img src="{{ asset('images/img_2_sq.jpg') }}" alt="Image placeholder"
-                                                class="me-4 rounded">
-                                            <div class="text">
-                                                <h4>Quibusdam autem, quas molestias recusandae aperiam molestiae modi
-                                                    qui ipsam vel</h4>
-                                                <div class="post-meta">
-                                                    <span class="mr-2">March 15, 2018 </span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <img src="{{ asset('images/img_3_sq.jpg') }}" alt="Image placeholder"
-                                                class="me-4 rounded">
-                                            <div class="text">
-                                                <h4>Quibusdam autem, quas molestias recusandae aperiam molestiae modi
-                                                    qui ipsam vel</h4>
-                                                <div class="post-meta">
-                                                    <span class="mr-2">March 15, 2018 </span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
+                                            </a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
+
+
+
+
                     </div>
                     <div class="sidebar-box">
                         <h3 class="heading">Catégories</h3>
@@ -381,6 +612,20 @@
         </div>
     </section>
     @include('layout.footer')
+
+    @section('scripts')
+    @endsection
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+        document.getElementById('show-more-comments')?.addEventListener('click', function() {
+            document.getElementById('more-comments').style.display = 'block';
+            this.style.display = 'none'; // Hide the button after showing more comments
+        });
+    </script>
 </body>
 
 </html>

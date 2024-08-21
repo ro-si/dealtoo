@@ -4,7 +4,7 @@
 
         <div class="footer-content">
             <div class="container">
-                {{-- <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
+                 <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
 
                     <div class="col">
                         <div class="footer-col">
@@ -109,7 +109,7 @@
 
                     <div style="clear: both"></div>
 
-                </div> --}}
+                </div> 
                 <div class="row">
                     <div class="col-12">
                         <hr class="bg-secondary border-0">

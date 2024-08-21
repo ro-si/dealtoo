@@ -11,9 +11,10 @@ class ArticleController extends Controller
 
 
 
-
     public function store(Request $request)
     {
+
+        
         // Valider les données du formulaire
         $request->validate([
             'title' => 'required|string|max:255',
@@ -52,4 +53,7 @@ class ArticleController extends Controller
         // Retourne la vue 'welcome' avec les catégories
         return view('welcome', compact('categories'));
     }
+
+
+    
 }

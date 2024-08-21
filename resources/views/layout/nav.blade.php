@@ -8,6 +8,9 @@
 
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+{{--  --}}
+
+
 
   <title>Blog-dealtoo</title>
 </head>
@@ -62,7 +65,7 @@
 </nav> --}}
 
 
-<nav class="{{ request()->is('/') ? '' : 'nav' }} navbar navbar-expand-lg navbar-light bg-light">
+<nav class="{{ request()->is('/') ? '' : 'nav' }} navbar navbar-expand-lg navbar-light ">
   <div class="container-fluid">
       <!-- Logo -->
       <a class="navbar-brand" href="{{ url('/') }}">
@@ -92,6 +95,9 @@
           <button type="button" class="btn btn-primary ms-2 d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#addArticleModal">
               Ajouter un Article
           </button>
+          {{-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addArticleModal">
+            Ajouter un Article
+        </button> --}}
       </div>
   </div>
 
@@ -103,7 +109,7 @@
 
     display: flex;
     /* width: 65%; */
-
+background: #e9ecef;
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
@@ -352,6 +358,9 @@ font-size: 15px;
     }
   } */
 </style>
+
+
+
 
 <script>
   // Get the flag container

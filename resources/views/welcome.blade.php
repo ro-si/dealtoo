@@ -18,6 +18,9 @@
     <!-- Style css -->
     <link href="assets/css/style.min.css" rel="stylesheet" type="text/css">
 
+{{--  --}}
+
+
 
     <!-- JavaScript jQuery et Bootstrap pour le modal ajouté -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -26,6 +29,12 @@
     <script src="js/bootstrap.bundle.min.js"></script>
 
     {{--  --}}
+
+<!-- Inclure les fichiers CSS et JS de EasyMDE -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+ <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script> 
+
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
@@ -97,8 +106,41 @@ img.custom-size {
     object-position: center; /* Centrer l'image si elle est recadrée */
 }
 
-        </style>
 
+.bg-light {
+    --bs-bg-opacity: 1;
+    background-color: #fff !important;
+}
+
+
+
+.marquee {
+            width: 100%; /* Largeur de la bande */
+            white-space: nowrap; /* Empêche le texte de passer à la ligne */
+            overflow: hidden; /* Cache le texte qui dépasse */
+            box-sizing: border-box;
+        }
+
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%; /* Positionne le texte hors de l'écran */
+            animation: marquee 20s linear infinite; /* Animation continue */
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .spann{
+            color: black;
+            font-size: 20px;
+        }
+        </style>
 
   
 </head>
@@ -106,12 +148,21 @@ img.custom-size {
 <body class="font-body">
 
     @include('layout.nav')
-    <div class="banner" >
+    {{-- <div class="banner" >
         <img src="{{ asset('/assets/help-image/help-banner-2.jpg') }}" alt="">
-      </div>
+      </div> --}}
    
+     
+
+
+
+
+
+     
+     
+
     <!-- Start Blog -->
-    <section id="demo" class="py-28">
+    {{-- <section id="demo" class="py-28">
         <div class="container">
             <div class="max-w-md mx-auto text-center relative overflow-hidden h-16 text-container">
                 <h2 class="text-3xl">"Les Tendances du Moment sur <span>Dealtoo</span>  "</h2>
@@ -120,62 +171,215 @@ img.custom-size {
 
           
         </div><!-- end container -->
-    </section>
+    </section> --}}
 
 
- <!-- Contenu de la vue -->
- @if($categories->isEmpty())
- <!-- Affichage lorsque aucune catégorie n'est disponible -->
- <div class="container">
-     <p>Aucune catégorie disponible pour le moment. Ajoutez une catégorie pour voir des articles.</p>
 
-            @else
-            <!-- Affichage lorsque des catégories sont disponibles -->
-            @foreach($categories as $category)
-                @if($category->articles->isNotEmpty()) <!-- Vérifier que la catégorie a des articles -->
-                    <section class="section">
-                        <div class="container">
-                            <div class="row mb-4">
-                     <div class="col-sm-6">
-                         <h2 class="posts-entry-title">{{ $category->name }}</h2> <!-- Titre de la catégorie -->
-                     </div>
-                     <div class="col-sm-6 text-sm-end">
-                         <a href="" class="read-more">Voir plus</a>
-                     </div>
-                 </div>
-                 
-                 <div class="row">
-                     @forelse($category->articles as $article)
-                         <div class="col-lg-4 mb-4">
-                             <div class="post-entry-alt animate-on-hover">
-                                 @if($article->image)
-                                 <a href="" class="img-link">
-                                         <img src="{{ asset('assets/' . $article->image) }}" alt="{{ $article->title }}" class="img custom-size">
-                                     </a>
-                                 @endif
-                                 <div class="excerpt">
-                                     <h2><a href="{{ route('blog.detail', ['id' => $article->id]) }}">{{ $article->title }}</a></h2> <!-- Titre de l'article -->
-                                     <p>{{ $article->body }}</p>
-                                     <p><a href="{{ route('blog.detail', ['id' => $article->id]) }}" class="read-more">Voir plus</a></p>
-                                 </div>
-                             </div>
-                         </div>
-                     @empty
-                         <p>Aucun article trouvé dans cette catégorie.</p>
-                     @endforelse
-                 </div>
-             </div>
-         </div>
-         </section>
-         
-     @endif
- @endforeach
+    <div class="marquee">
+        <span class="spann">Bienvenue sur BlogDealtoo ! Profitez de nos services exceptionnels et découvrez nos offres spéciales. Ne manquez pas nos dernières nouveautés !</span>
+    </div>
+</div>
+ {{-- pour afficher les article demm categorie  --}}
+  {{-- <section class="section bg-light">
+    <div class="container">
+        <div class="row align-items-stretch retro-layout">
+            @foreach($mostCommentedArticles as $article)
+                <div class="col-md-4">
+                    <a href="{{ route('blog.detail', $article->id) }}" class="h-entry mb-30 v-height gradient" >
+                        <div class="featured-img" style="background-image: url('{{ $article->image_url ?? 'default_image.jpg' }}');"> 
+                          <img src="{{ asset('assets/' . $article->image) }}" alt="{{ $article->title }}" class="card-img-top custom-size">
+                        </div>
+                        <div class="text">
+                            <span class="date">{{ $article->created_at->format('M d, Y') }}</span>
+                            <h2>{{ $article->title }}</h2>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>   --}}
+
+
+ <section class="section bg-light">
+    <div class="container">
+        <div class="row align-items-stretch retro-layout">
+            <!-- Colonne de gauche avec deux images -->
+            <div class="col-md-4">
+                <a href="{{ route('blog.detail', $mostCommentedArticles[0]->id) }}" class="h-entry mb-30 v-height gradient">
+                    <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[0]->image) }}');"></div>
+                    <div class="text">
+                        <span class="date">{{ $mostCommentedArticles[0]->created_at->format('M d, Y') }}</span>
+                        <h2>{{ $mostCommentedArticles[0]->title }}</h2>
+                    </div>
+                </a>
+                <a href="{{ route('blog.detail', $mostCommentedArticles[1]->id) }}" class="h-entry v-height gradient">
+                    <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[1]->image) }}');"></div>
+                    <div class="text">
+                        <span class="date">{{ $mostCommentedArticles[1]->created_at->format('M d, Y') }}</span>
+                        <h2>{{ $mostCommentedArticles[1]->title }}</h2>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Colonne centrale avec une image plus large -->
+            <div class="col-md-4">
+                <a href="{{ route('blog.detail', $mostCommentedArticles[2]->id) }}" class="h-entry img-5 h-100 gradient">
+                    <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[2]->image) }}');"></div>
+                    <div class="text">
+                        <span class="date">{{ $mostCommentedArticles[2]->created_at->format('M d, Y') }}</span>
+                        <h2>{{ $mostCommentedArticles[2]->title }}</h2>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Colonne de droite avec deux images -->
+            <div class="col-md-4">
+                <a href="{{ route('blog.detail', $mostCommentedArticles[3]->id) }}" class="h-entry mb-30 v-height gradient">
+                    <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[3]->image) }}');"></div>
+                    <div class="text">
+                        <span class="date">{{ $mostCommentedArticles[3]->created_at->format('M d, Y') }}</span>
+                        <h2>{{ $mostCommentedArticles[3]->title }}</h2>
+                    </div>
+                </a>
+                <a href="{{ route('blog.detail', $mostCommentedArticles[4]->id) }}" class="h-entry v-height gradient">
+                    <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[4]->image) }}');"></div>
+                    <div class="text">
+                        <span class="date">{{ $mostCommentedArticles[4]->created_at->format('M d, Y') }}</span>
+                        <h2>{{ $mostCommentedArticles[4]->title }}</h2>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section> 
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- 
+    <section class="section bg-light">
+        
+		<div class="container">
+			<div class="row align-items-stretch retro-layout">
+				<div class="col-md-4">
+					<a href="single.html" class="h-entry mb-30 v-height gradient">
+
+						<div class="featured-img" style="background-image: url('images/img_2_horizontal.jpg');"></div>
+
+						<div class="text">
+							<span class="date">Apr. 14th, 2022</span>
+							<h2>AI can now kill those annoying cookie pop-ups</h2>
+						</div>
+					</a>
+					<a href="single.html" class="h-entry v-height gradient">
+
+						<div class="featured-img" style="background-image: url('images/img_5_horizontal.jpg');"></div>
+
+						<div class="text">
+							<span class="date">Apr. 14th, 2022</span>
+							<h2>Don’t assume your user data in the cloud is safe</h2>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4">
+					<a href="single.html" class="h-entry img-5 h-100 gradient">
+
+						<div class="featured-img" style="background-image: url('images/img_1_vertical.jpg');"></div>
+
+						<div class="text">
+							<span class="date">Apr. 14th, 2022</span>
+							<h2>Why is my internet so slow?</h2>
+						</div>
+					</a>
+				</div>
+				<div class="col-md-4">
+					<a href="single.html" class="h-entry mb-30 v-height gradient">
+
+						<div class="featured-img" style="background-image: url('images/img_3_horizontal.jpg');"></div>
+
+						<div class="text">
+							<span class="date">Apr. 14th, 2022</span>
+							<h2>Startup vs corporate: What job suits you best?</h2>
+						</div>
+					</a>
+					<a href="single.html" class="h-entry v-height gradient">
+
+						<div class="featured-img" style="background-image: url('images/img_4_horizontal.jpg');"></div>
+
+						<div class="text">
+							<span class="date">Apr. 14th, 2022</span>
+							<h2>Thought you loved Python? Wait until you meet Rust</h2>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>  --}}
+
+
+
+
+
+
+
+<!-- Contenu de la vue -->
+@if($categories->isEmpty())
+<!-- Affichage lorsque aucune catégorie n'est disponible -->
+<div class="container">
+    <p>Aucune catégorie disponible pour le moment. Ajoutez une catégorie pour voir des articles.</p>
+</div>
+@else
+<!-- Affichage lorsque des catégories sont disponibles -->
+@foreach($categories as $category)
+    @if($category->articles->isNotEmpty()) <!-- Vérifier que la catégorie a des articles -->
+        <section class="section">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col-sm-6">
+                        <h2 class="posts-entry-title">{{ $category->name }}</h2> <!-- Titre de la catégorie -->
+                    </div>
+                    <div class="col-sm-6 text-sm-end">
+                        @if($category->articles->count() > 4)
+                            <a href="{{ route('category.show', ['id' => $category->id]) }}" class="read-more">Voir plus</a>
+                        @endif
+                    </div>
+                </div>
+                
+                <div class="row">
+                    @foreach($category->articles->take(4) as $article)
+                        <div class="col-lg-3 mb-4"> <!-- Réduire la largeur de la colonne pour en avoir 4 sur une ligne -->
+                            <div class="card h-100">
+                                @if($article->image)
+                                    <img src="{{ asset('assets/' . $article->image) }}" alt="{{ $article->title }}" class="card-img-top custom-size">
+                                @else
+                                    <img src="{{ asset('assets/default.jpg') }}" alt="Image par défaut" class="card-img-top custom-size">
+                                @endif
+                                <div class="card-body">
+                                    <p class="text-muted">{{ $article->created_at->format('d M Y') }}</p> <!-- Date de publication -->
+                                    <h5 class="card-title"><a href="{{ route('blog.detail', ['id' => $article->id]) }}">{{ $article->title }}</a></h5> <!-- Titre de l'article -->
+                                    <p class="card-text">{{ Str::limit($article->body, 20) }}</p> <!-- Limiter le texte à 100 caractères -->
+                                </div>
+                                <div class="card-footer">
+                                    <a href="{{ route('blog.detail', ['id' => $article->id]) }}" class="btn btn-primary">Voir plus</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+@endforeach
 @endif
-
-
-
-
-
 
 
 
@@ -183,20 +387,17 @@ img.custom-size {
    
 
     
-    
-  <!-- Modale pour ajouter un article -->
-  <div class="modal fade" id="addArticleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <!-- Modal pour ajouter un article -->
+<div class="modal fade" id="addArticleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Ajouter un Nouvel Article</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-
-            <form action="{{ route('article.store') }}" method="POST" enctype="multipart/form-data">
+            <form id="articleForm" action="{{ route('article.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -205,7 +406,8 @@ img.custom-size {
                     </div>
                     <div class="form-group">
                         <label for="body">Contenu</label>
-                        <textarea class="form-control" id="body" name="body" rows="4" required></textarea>
+                        <textarea  onchange="console.log('text')"   class="form-control" id="body" name="body" rows="4" style="display: none;"></textarea>
+                        <input type="hidden" id="body-hidden" name="body-hidden">
                     </div>
                     <div class="form-group">
                         <label for="category">Catégorie</label>
@@ -216,7 +418,6 @@ img.custom-size {
                             @endforeach
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label for="published_at">Publié le</label>
                         <input type="datetime-local" class="form-control" id="published_at" name="published_at">
@@ -231,89 +432,47 @@ img.custom-size {
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                 </div>
             </form>
-
         </div>
     </div>
 </div>
 
 
 
+
+
+
+
+
+
     @include('layout.footer')
     
 
-    {{-- <footer class="py-8 bg-slate-100">
-        <div class="container">
-            <div class="flex">
-                <div class="w-full">
-                    <div class="text-center">
-                        <p class="text-muted"> ©
-                            <script>document.write(new Date().getFullYear())</script> Blogez. By <a class="font-medium"
-                                href="#">Techzaa</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- end row -->
-        </div><!-- end container -->
-    </footer> --}}
-
-
     
+<!-- Scripts -->
+<!-- Scripts -->
+ <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script> 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var easyMDE = new EasyMDE({ element: document.getElementById('body') });
+        var textarea = document.getElementById('body');
 
-    {{-- <!-- Modals et JavaScript -->
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/tiny-slider.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/glightbox.min.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/custom.js"></script> --}}
-    <script>
-            document.addEventListener('DOMContentLoaded', function() {
-            const phrases = [
-                "Ce que Vous Devez Savoir",
-                "Voici mon premier texte",
-                "Une autre phrase intéressante",
-                "Découvrez nos nouveautés"
-                // Ajoutez d'autres phrases si nécessaire
-            ];
-
-            const element = document.getElementById('animated-text');
-            let phraseIndex = 0;
-            let charIndex = 0;
-            let typing = true;
-
-            function typeEffect() {
-                if (typing) {
-                // Tape les caractères
-                element.textContent += phrases[phraseIndex].charAt(charIndex);
-                charIndex++;
-                if (charIndex > phrases[phraseIndex].length) {
-                    typing = false;
-                    setTimeout(typeEffect, 1000); // Pause avant de supprimer le texte
-                } else {
-                    setTimeout(typeEffect, 100); // Vitesse de frappe
-                }
-                } else {
-                // Efface les caractères
-                element.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
-                charIndex--;
-                if (charIndex <= 0) {
-                    typing = true;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    setTimeout(typeEffect, 500); // Pause avant de taper la prochaine phrase
-                } else {
-                    setTimeout(typeEffect, 50); // Vitesse d'effacement
-                }
-                }
+        document.getElementById('articleForm').addEventListener('submit', function(event) {
+            if (textarea) {
+                textarea.style.display = 'block'; // Rendre visible pour la soumission
+                textarea.value = easyMDE.value(); // Mettre à jour le contenu
+                setTimeout(function() {
+                    textarea.style.display = 'none'; // Masquer après la soumission
+                }, 0);
+            } else {
+                console.error('Textarea not found');
             }
+        });
+    });
+</script>
 
-            typeEffect(); // Démarrer l'animation
-            });
-
-
-    </script>
 
 </body>
 
 </html>
+
+
