@@ -18,22 +18,16 @@
     <!-- Style css -->
     <link href="assets/css/style.min.css" rel="stylesheet" type="text/css">
 
-{{--  --}}
 
 
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script> 
 
     <!-- JavaScript jQuery et Bootstrap pour le modal ajouté -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-
-    {{--  --}}
-
-<!-- Inclure les fichiers CSS et JS de EasyMDE -->
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
- <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script> 
-
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -255,16 +249,6 @@ img.custom-size {
 </section> 
 
 
-
-
-
-
-
-
-
-
-
-
 {{-- 
     <section class="section bg-light">
         
@@ -326,11 +310,6 @@ img.custom-size {
 	</section>  --}}
 
 
-
-
-
-
-
 <!-- Contenu de la vue -->
 @if($categories->isEmpty())
 <!-- Affichage lorsque aucune catégorie n'est disponible -->
@@ -366,7 +345,7 @@ img.custom-size {
                                 <div class="card-body">
                                     <p class="text-muted">{{ $article->created_at->format('d M Y') }}</p> <!-- Date de publication -->
                                     <h5 class="card-title"><a href="{{ route('blog.detail', ['id' => $article->id]) }}">{{ $article->title }}</a></h5> <!-- Titre de l'article -->
-                                    <p class="card-text">{{ Str::limit($article->body, 20) }}</p> <!-- Limiter le texte à 100 caractères -->
+                                    <p class="card-text">{{ Str::limit(strip_tags($article->body), 20) }}</p> <!-- Limiter le texte à 100 caractères -->
                                 </div>
                                 <div class="card-footer">
                                     <a href="{{ route('blog.detail', ['id' => $article->id]) }}" class="btn btn-primary">Voir plus</a>
@@ -381,23 +360,20 @@ img.custom-size {
 @endforeach
 @endif
 
-
-
-
-   
-
     
  <!-- Modal pour ajouter un article -->
-<div class="modal fade" id="addArticleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade" id="addArticleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
+
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Ajouter un Nouvel Article</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="articleForm" action="{{ route('article.store') }}" method="POST" enctype="multipart/form-data">
+
+            <form action="{{ route('article.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -406,9 +382,10 @@ img.custom-size {
                     </div>
                     <div class="form-group">
                         <label for="body">Contenu</label>
-                        <textarea  onchange="console.log('text')"   class="form-control" id="body" name="body" rows="4" style="display: none;"></textarea>
-                        <input type="hidden" id="body-hidden" name="body-hidden">
-                    </div>
+                        <textarea class="form-control" id="body" name="body" rows="4"></textarea>
+                   </div>
+                   <!-- You may provide a separate image upload option if you want images stored outside of the editor's content -->
+
                     <div class="form-group">
                         <label for="category">Catégorie</label>
                         <select class="form-control" id="category" name="category_id" required>
@@ -418,10 +395,11 @@ img.custom-size {
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
+
+                    {{-- <div class="form-group">
                         <label for="published_at">Publié le</label>
                         <input type="datetime-local" class="form-control" id="published_at" name="published_at">
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <label for="image">Image</label>
                         <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
@@ -432,47 +410,85 @@ img.custom-size {
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                 </div>
             </form>
+
         </div>
     </div>
 </div>
 
-
-
-
-
-
-
-
-
     @include('layout.footer')
-    
 
-    
-<!-- Scripts -->
-<!-- Scripts -->
- <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script> 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var easyMDE = new EasyMDE({ element: document.getElementById('body') });
-        var textarea = document.getElementById('body');
-
-        document.getElementById('articleForm').addEventListener('submit', function(event) {
-            if (textarea) {
-                textarea.style.display = 'block'; // Rendre visible pour la soumission
-                textarea.value = easyMDE.value(); // Mettre à jour le contenu
-                setTimeout(function() {
-                    textarea.style.display = 'none'; // Masquer après la soumission
-                }, 0);
-            } else {
-                console.error('Textarea not found');
-            }
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            ClassicEditor
+                .create(document.querySelector('#body'), {
+                    toolbar: [  '|',
+                        'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'insertTable', 'blockQuote', 'undo', 'redo'
+                    ],
+                    heading: {
+                        options: [
+                            { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                            { model: 'heading1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                            { model: 'heading2', title: 'Heading 2', class: 'ck-heading_heading2' }
+                        ]
+                    },
+                    // ckfinder: {
+                    //     uploadUrl: '/upload_image', // Spécifiez l'URL de votre endpoint d'upload d'image ici
+                    // },
+                    // image: {
+                    //     toolbar: [
+                    //         'imageTextAlternative', 'imageStyle:full', 'imageStyle:side'
+                    //     ]
+                    // }
+                })
+                .then(editor => {
+                    console.log(editor);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         });
-    });
-</script>
-
-
+    </script>
+    
+    
 </body>
 
 </html>
 
+{{-- 
+document.addEventListener('DOMContentLoaded', function() {
+    ClassicEditor
+        .create(document.querySelector('#body'), {
+            toolbar: [
+                'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo'
+            ],
+            heading: {
+                options: [
+                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                    { model: 'heading1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                    { model: 'heading2', title: 'Heading 2', class: 'ck-heading_heading2' }
+                ]
+            },
+            // ckfinder: {
+            //     uploadUrl: '/upload_image', // Spécifiez l'URL de votre endpoint d'upload d'image ici
+            // },
+            // image: {
+            //     toolbar: [
+            //         'imageTextAlternative', 'imageStyle:full', 'imageStyle:side'
+            //     ]
+            // }
+        })
+        .then(editor => {
+            console.log(editor);
 
+            // Example of getting the HTML data from CKEditor
+            document.querySelector('#myForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const data = editor.getData();
+                console.log(data); // This should print the HTML content
+                // You can now send 'data' to your server
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}); --}}

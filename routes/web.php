@@ -8,7 +8,7 @@ use App\Http\Controllers\Auth\LoginController;
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CommentController;
-
+use App\Http\Controllers\ImageController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -19,14 +19,14 @@ use App\Http\Controllers\CommentController;
 // pour chaque détail article 
 Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('blog.detail');
 
-// liste category
 Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');
+
 
 
 Route::get('/blog', [HomeController::class, 'blog']);
 
  Route::get('/', [HomeController::class, 'index'])->name('welcome');
- 
+
 // Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
 
 Route::post('/article', [ArticleController::class, 'store'])->name('article.store');
@@ -61,3 +61,10 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::post('comments', [CommentController::class, 'store'])->name('comment.store');
+
+
+Route::post('/upload_image', [ImageController::class, 'uploadImage'])->name('image.upload');
+
+use App\Http\Controllers\ApiAuthController;
+
+Route::post('/api/login', [ApiAuthController::class, 'login'])->name('api.login');

@@ -42,6 +42,13 @@
                 font-size: 40px;
             } */
 
+                        .card-text {
+                max-width: 300px; /* Ajustez la largeur maximale selon vos besoins */
+                overflow: hidden;  /* Cache le texte qui dépasse */
+                /* text-overflow: ellipsis; Ajoute "..." à la fin si le texte est trop long */
+                /* white-space: nowrap; Empêche le texte de se décomposer en plusieurs lignes */
+            }
+
 
         .text-container {
             position: relative;
@@ -103,7 +110,7 @@
             transition: transform 0.3s;
         }
 
-        
+
         .sidebar {
             /* padding: 1rem; */
             background-color: #f8f9fa;
@@ -115,6 +122,7 @@
         .sidebar-box {
             margin-bottom: 1.5rem;
         }
+
         .post-entry-sidebar img {
             width: 80px;
             height: 80px;
@@ -167,207 +175,208 @@
 
 
         .sidebar-box {
-    background: #f8f9fa;
-     padding: 20px;  
-    margin-bottom: 20px;
-    border-radius: 10px;
-    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
-}
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+        }
 
-.sidebar-box h3.heading {
-    
-    
-    margin-bottom: 15px;
-    color: #333;
-    /* border-bottom: 2px solid #007bff; */
-    padding-bottom: 10px;
-}
-
-.post-entry-sidebar ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.post-entry-sidebar ul li {
-   
-}
-.post-entry-sidebar ul li {
-    list-style: none;
-    padding: 0 0 20px 0;
-    margin: 0 0 20px 0;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-}
-.post-entry-sidebar ul li img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    margin-right: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.post-entry-sidebar ul li .text {
-    flex: 1;
-}
-
-.post-entry-sidebar ul li .text h4 {
-    font-size: 16px;
-    color: #4D4C7D;
-    margin-bottom: 5px;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.post-entry-sidebar ul li .text h4:hover {
-    color: #0056b3;
-}
-
-.post-entry-sidebar ul li .post-meta {
-    font-size: 14px;
-    color: #6c757d;
-}
-
-.categories ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.categories ul li {
-    margin-bottom: 10px;
-}
-
-.categories ul li a {
-    font-size: 16px;
-    color: #333;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: color 0.3s;
-}
-
-.categories ul li a:hover {
-    color: #007bff;
-}
-
-.tags ul {
-    list-style: none;
-    padding-left: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.tags ul li {
-    margin-bottom: 5px;
-}
-
-.tags ul li a {
-    font-size: 14px;
-    background: #e9ecef;
-    padding: 5px 10px;
-    border-radius: 20px;
-    color: #007bff;
-    transition: background-color 0.3s;
-}
-
-.tags ul li a:hover {
-    background-color: #007bff;
-    color: #fff;
-}
-/*  */
+        .sidebar-box h3.heading {
 
 
-.sidebar-box {
-    margin-top: 30px;
-}
+            margin-bottom: 15px;
+            color: #333;
+            /* border-bottom: 2px solid #007bff; */
+            padding-bottom: 10px;
+        }
 
-.similar-post-item {
-    margin-bottom: 20px;
-}
+        .post-entry-sidebar ul {
+            list-style: none;
+            padding-left: 0;
+        }
 
-.similar-post-image {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
+        .post-entry-sidebar ul li {}
 
-.similar-post-item .text {
-    padding: 10px;
-}
+        .post-entry-sidebar ul li {
+            list-style: none;
+            padding: 0 0 20px 0;
+            margin: 0 0 20px 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
 
-.similar-post-item .text h4 {
-    margin: 0;
-    font-size: 16px;
-}
+        .post-entry-sidebar ul li img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-.similar-post-item .post-meta {
-    color: #888;
-    font-size: 14px;
-}
-/*  */
+        .post-entry-sidebar ul li .text {
+            flex: 1;
+        }
+
+        .post-entry-sidebar ul li .text h4 {
+            font-size: 16px;
+            color: #4D4C7D;
+            margin-bottom: 5px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .post-entry-sidebar ul li .text h4:hover {
+            color: #0056b3;
+        }
+
+        .post-entry-sidebar ul li .post-meta {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .categories ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .categories ul li {
+            margin-bottom: 10px;
+        }
+
+        .categories ul li a {
+            font-size: 16px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .categories ul li a:hover {
+            color: #007bff;
+        }
+
+        .tags ul {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tags ul li {
+            margin-bottom: 5px;
+        }
+
+        .tags ul li a {
+            font-size: 14px;
+            background: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 20px;
+            color: #007bff;
+            transition: background-color 0.3s;
+        }
+
+        .tags ul li a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        /*  */
 
 
-.pagination {
-    display: inline-block;
-    margin-top: 20px;
-}
+        .sidebar-box {
+            margin-top: 30px;
+        }
 
-.pagination a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    transition: background-color .3s;
-    border: 1px solid #ddd;
-    margin: 0 4px;
-    border-radius: 5px;
-}
+        .similar-post-item {
+            margin-bottom: 20px;
+        }
 
-.pagination a.active {
-    background-color: #007bff;
-    color: white;
-    border: 1px solid #007bff;
-}
+        .similar-post-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
 
-.pagination a:hover:not(.active) {
-    background-color: #ddd;
-}
+        .similar-post-item .text {
+            padding: 10px;
+        }
 
-/*  */
+        .similar-post-item .text h4 {
+            margin: 0;
+            font-size: 16px;
+        }
 
-.card {
-    border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-}
+        .similar-post-item .post-meta {
+            color: #888;
+            font-size: 14px;
+        }
 
-.card:hover {
-    transform: scale(1.05);
-}
+        /*  */
 
-.card-link {
-    text-decoration: none;
-    color: #333;
-}
 
-.card-link:hover {
-    color: #007bff;
-}
+        .pagination {
+            display: inline-block;
+            margin-top: 20px;
+        }
 
-.card-body i {
-    display: block;
-    margin: 0 auto 10px;
-    color: #007bff;
-}
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+            border-radius: 5px;
+        }
 
-.card-body h6 {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 600;
-}
+        .pagination a.active {
+            background-color: #007bff;
+            color: white;
+            border: 1px solid #007bff;
+        }
 
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+        /*  */
+
+        .card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .card-link:hover {
+            color: #007bff;
+        }
+
+        .card-body i {
+            display: block;
+            margin: 0 auto 10px;
+            color: #007bff;
+        }
+
+        .card-body h6 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
     </style>
 
 
@@ -672,83 +681,94 @@
             </div>
         </div>
     </div>
-    
 
 
-    
-{{-- POUR les article aligné  --}}
-<div class="section search-result-wrap">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="heading">Category: {{ $category->name }}</div>
+
+
+    {{-- POUR les article aligné  --}}
+    <div class="section search-result-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading">Category: {{ $category->name }}</div>
+                </div>
             </div>
-        </div>
-        <div class="row posts-entry">
-            <div class="col-lg-8">
-                <div class="row">
-                    @foreach ($articles as $article)
-                        <div class="col-md-12 mb-4">
-                            <div class="card d-flex flex-row border-0">
-                                <a href="{{ route('blog.detail', ['id' => $article->id]) }}" class="d-flex flex-shrink-0">
-                                    @if ($article->image)
-                                        <img class="card-img" src="{{ asset('assets/' . $article->image) }}" alt="{{ $article->title }}" style="width: 180px; height: 100%; object-fit: cover;">
-                                    @else
-                                        <img class="card-img" src="{{ asset('assets/default.jpg') }}" alt="Image par défaut" style="width: 180px; height: 100%; object-fit: cover;">
-                                    @endif
-                                </a>
-                                <div class="card-body d-flex flex-column justify-content-between">
-                                    <div>
-                                        <h5 class="card-title">
-                                            <a href="{{ route('blog.detail', ['id' => $article->id]) }}">{{ $article->title }}</a>
-                                        </h5>
-                                        <p class="card-text">{{ Str::limit($article->body, 150) }}</p>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <small class="text-muted">{{ $article->created_at->format('M. dS, Y') }} &bullet; <a href="#">{{ $category->name }}</a></small>
-                                        <a href="{{ route('blog.detail', ['id' => $article->id]) }}" class="btn btn-outline-primary btn-sm">Voir plus</a>
+            <div class="row posts-entry">
+                <div class="col-lg-8">
+                    <div class="row">
+                        @foreach ($articles as $article)
+                            <div class="col-md-12 mb-4">
+                                <div class="card d-flex flex-row border-0">
+                                    <a href="{{ route('blog.detail', ['id' => $article->id]) }}"
+                                        class="d-flex flex-shrink-0">
+                                        @if ($article->image)
+                                            <img class="card-img" src="{{ asset('assets/' . $article->image) }}"
+                                                alt="{{ $article->title }}"
+                                                style="width: 180px; height: 100%; object-fit: cover;">
+                                        @else
+                                            <img class="card-img" src="{{ asset('assets/default.jpg') }}"
+                                                alt="Image par défaut"
+                                                style="width: 180px; height: 100%; object-fit: cover;">
+                                        @endif
+                                    </a>
+                                    <div class="card-body d-flex flex-column justify-content-between">
+                                        <div>
+                                            <h5 class="card-title">
+                                                <a
+                                                    href="{{ route('blog.detail', ['id' => $article->id]) }}">{{ $article->title }}</a>
+                                            </h5>
+                                            <p class="card-text">{{ Str::limit(strip_tags($article->body), ) }}</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <small class="text-muted">{{ $article->created_at->format('M. dS, Y') }}
+                                                &bullet; <a href="#">{{ $category->name }}</a></small>
+                                            <a href="{{ route('blog.detail', ['id' => $article->id]) }}"
+                                                class="btn btn-outline-primary btn-sm">Voir plus</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
+
+                    {{-- Pagination --}}
+                    <div class="pagination">
+                        <a href="{{ $articles->previousPageUrl() }}">&laquo;</a>
+
+                        @for ($i = 1; $i <= $articles->lastPage(); $i++)
+                            <a href="{{ $articles->url($i) }}"
+                                class="{{ $articles->currentPage() == $i ? 'active' : '' }}">{{ $i }}</a>
+                        @endfor
+
+                        <a href="{{ $articles->nextPageUrl() }}">&raquo;</a>
+                    </div>
+
+
+
                 </div>
-            
-                {{-- Pagination --}}
-                <div class="pagination">
-                    <a href="{{ $articles->previousPageUrl() }}">&laquo;</a>
-                
-                    @for ($i = 1; $i <= $articles->lastPage(); $i++)
-                        <a href="{{ $articles->url($i) }}" class="{{ $articles->currentPage() == $i ? 'active' : '' }}">{{ $i }}</a>
-                    @endfor
-                
-                    <a href="{{ $articles->nextPageUrl() }}">&raquo;</a>
-                </div>
-                
-                
-                
-            </div>
-            
-            
-            
-            <div class="col-md-12 col-lg-4 sidebar">
+
+
+
+                <div class="col-md-12 col-lg-4 sidebar">
 
                     <div class="sidebar-box">
-                        
+
 
 
                         <div class="sidebar-box">
                             <h3 class="heading">Post Populaire</h3>
                             <div class="post-entry-sidebar">
                                 <ul>
-                                    @foreach($popularPosts as $post)
+                                    @foreach ($popularPosts as $post)
                                         <li>
                                             <a href="{{ route('blog.detail', $post->id) }}" class="post-link">
-                                                <img src="{{ asset('assets/' . $post->image) }}" alt="{{ $post->title }}" class="post-image">
+                                                <img src="{{ asset('assets/' . $post->image) }}"
+                                                    alt="{{ $post->title }}" class="post-image">
                                                 <div class="text">
                                                     <h4>{{ $post->title }}</h4>
                                                     <div class="post-meta">
-                                                        <span class="mr-2">{{ $post->created_at->format('F j, Y') }}</span>
+                                                        <span
+                                                            class="mr-2">{{ $post->created_at->format('F j, Y') }}</span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -758,29 +778,31 @@
                             </div>
                         </div>
 
-                          <!-- Sidebar avec les posts similaires -->
-           
-                <div class="sidebar-box">
-                    <h3 class="heading">Post Similaire</h3>
-                    <div class="post-entry-sidebar">
-                        <ul>
-                            @foreach ($similarPosts as $post)
-                                <li class="similar-post-item">
-                                    <a href="{{ route('blog.detail', $post->id) }}">
-                                        <img src="{{ asset('assets/' . $post->image) }}" alt="{{ $post->title }}" class="similar-post-image">
-                                        <div class="text">
-                                            <h4>{{ $post->title }}</h4>
-                                            <div class="post-meta">
-                                                <span class="mr-2">{{ $post->created_at->format('F j, Y') }}</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-           
+                        <!-- Sidebar avec les posts similaires -->
+
+                        <div class="sidebar-box">
+                            <h3 class="heading">Post Similaire</h3>
+                            <div class="post-entry-sidebar">
+                                <ul>
+                                    @foreach ($similarPosts as $post)
+                                        <li class="similar-post-item">
+                                            <a href="{{ route('blog.detail', $post->id) }}">
+                                                <img src="{{ asset('assets/' . $post->image) }}"
+                                                    alt="{{ $post->title }}" class="similar-post-image">
+                                                <div class="text">
+                                                    <h4>{{ $post->title }}</h4>
+                                                    <div class="post-meta">
+                                                        <span
+                                                            class="mr-2">{{ $post->created_at->format('F j, Y') }}</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+
 
 
 
@@ -805,14 +827,14 @@
                     </div>
 
 
-                
+
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-    
-    
+
+
 
 
 

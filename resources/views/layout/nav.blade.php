@@ -109,7 +109,7 @@
 
     display: flex;
     /* width: 65%; */
-background: #e9ecef;
+background: #FAFAFA;
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;

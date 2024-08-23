@@ -38,6 +38,63 @@
     <title>{{ $article->title }} - Blogy</title>
 
     <style>
+/*  */
+
+.comment-form {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .comment-form textarea {
+        width: 100%;
+        height: 100px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .comment-form button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .comment-form button:hover {
+        background-color: #0056b3;
+    }
+
+    .comment-form p {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .comment-form a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .comment-form a:hover {
+        text-decoration: underline;
+    }
+
+    .disabled-form {
+        opacity: 0.6;
+    }
+
+
         /* Style pour les liens dans la sidebar */
         .sidebar-box .tags li a {
             text-decoration: none;
@@ -47,6 +104,21 @@
             transition: color 0.3s ease, background-color 0.3s ease;
             /* Transition douce */
         }
+
+
+                    .card-img-top {
+                height: 180px; /* Ajustez la hauteur selon vos besoins */
+                object-fit: cover;
+            }
+
+            .card-body {
+                padding: 1rem;
+            }
+
+            .btn-primary {
+                background-color: #007bff; /* Couleur principale */
+                border-color: #007bff;
+            }
 
         /* Effet de survol pour les liens */
         .sidebar-box .tags li a:hover {
@@ -315,9 +387,12 @@
         <div class="container">
             <div class="row blog-entries element-animate">
                 <div class="col-md-12 col-lg-8 main-content">
-                    <div class="post-content-body">
+                    {{-- <div class="post-content-body">
                         {!! $article->body !!}
 
+                    </div> --}}
+                    <div class="post-content-body">
+                        {!! $article->body !!}
                     </div>
                     <div class="post-content-body">
                         {!! $article->body !!}
@@ -383,21 +458,37 @@
                         @endif
                     </div>
 
-                    @if (Auth::check())
-                        <form action="{{ route('comment.store') }}" method="POST" class="comment-form mt-4">
+                   
+                    @if(auth()->check())
+                    <!-- Formulaire de commentaire pour les utilisateurs connectés -->
+                    <div class="comment-form">
+                        <form action="{{ route('comment.store') }}" method="POST">
                             @csrf
-                            <input type="hidden" name="article_id" value="{{ $article->id }}">
-                            <textarea name="comment" required class="comment-textarea" placeholder="Votre commentaire..."></textarea>
-                            <button type="submit" class="btn btn-primary">Poster un commentaire</button>
+                            <textarea name="comment" placeholder="Votre commentaire..."></textarea>
+                            <button type="submit">Poster le commentaire</button>
                         </form>
-                    @else
-                        <p class="login-prompt">Vous devez <a href="{{ route('register') }}">vous connecter</a> pour
-                            poster un commentaire.</p>
-                    @endif
-
-                    @if (session('success'))
-                        <div class="alert alert-success mt-3">{{ session('success') }}</div>
-                    @endif
+                    </div>
+                @else
+                    <!-- Formulaire de commentaire non fonctionnel pour les utilisateurs non connectés -->
+                    <div class="comment-form disabled-form">
+                        <form>
+                            <textarea placeholder="Votre commentaire..." disabled></textarea>
+                            <button type="button" disabled>Poster le commentaire</button>
+                        </form>
+                        <p>Vous devez être connecté pour poster un commentaire.</p>
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+                            Se connecter
+                        </button>
+                        <form id="login-form" action="{{ route('login') }}" method="GET" style="display: none;">
+                            <input type="hidden" name="redirect_to" value="{{ request()->fullUrl() }}">
+                        </form>
+                    </div>
+                @endif
+                
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 
@@ -408,6 +499,40 @@
 
 
 
+ <!-- Modal  connexion-->
+ <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Connexion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" action="{{ route('api.login') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                        <label class="form-check-label" for="remember">Se souvenir de moi</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Se connecter</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -509,108 +634,11 @@
             </div>
         </div>
     </section>
-    {{-- <section class="section">
-      <div class="container">
-
-          <div class="row blog-entries element-animate">
-
-              <div class="col-md-12 col-lg-8 main-content">
-
-                  <div class="pt-5 comment-wrap">
-
-
-                      <!-- END comment-list -->
-
-                      <div class="comment-form-wrap pt-5">
-                          <h3 class="mb-5">Leave a comment</h3>
-                          <form action="#" class="p-5 bg-light">
-                              <div class="form-group">
-                                  <label for="name">Name *</label>
-                                  <input type="text" class="form-control" id="name">
-                              </div>
-                              <div class="form-group">
-                                  <label for="email">Email *</label>
-                                  <input type="email" class="form-control" id="email">
-                              </div>
-                              <div class="form-group">
-                                  <label for="website">Website</label>
-                                  <input type="url" class="form-control" id="website">
-                              </div>
-
-                              <div class="form-group">
-                                  <label for="message">Message</label>
-                                  <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
-                              </div>
-                              <div class="form-group">
-                                  <input type="submit" value="Post Comment" class="btn btn-primary">
-                              </div>
-
-                          </form>
-                      </div>
-                  </div>
-
-              </div>
-
-              <!-- END main-content -->
+  
 
 
 
-          </div>
-      </div>
-  </section> --}}
-    <section class="section posts-entry posts-entry-sm bg-light">
-        <div class="container">
-            <div class="row mb-4">
-                <div class="col-12 text-uppercase text-black">Afficher plus</div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="blog-entry">
-                        <a href="single.html" class="img-link">
-                            <img src="{{ asset('images/img_1_horizontal.jpg') }}" alt="Image" class="img-fluid">
-                        </a>
-                        <span class="date">Apr. 14th, 2022</span>
-                        <h2><a href="single.html">Thought you loved Python? Wait until you meet Rust</a></h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <p><a href="#" class="read-more">Continue Reading</a></p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="blog-entry">
-                        <a href="single.html" class="img-link">
-                            <img src=" {{ asset('images/img_2_horizontal.jpg') }}" alt="Image" class="img-fluid">
-                        </a>
-                        <span class="date">Apr. 14th, 2022</span>
-                        <h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <p><a href="#" class="read-more">Continue Reading</a></p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="blog-entry">
-                        <a href="single.html" class="img-link">
-                            <img src="{{ asset('images/img_3_horizontal.jpg') }}" alt="Image" class="img-fluid">
-                        </a>
-                        <span class="date">Apr. 14th, 2022</span>
-                        <h2><a href="single.html">UK sees highest inflation in 30 years</a></h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <p><a href="#" class="read-more">Continue Reading</a></p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="blog-entry">
-                        <a href="single.html" class="img-link">
-                            <img src="{{ asset('images/img_4_horizontal.jpg') }}" alt="Image" class="img-fluid">
-                        </a>
-                        <span class="date">Apr. 14th, 2022</span>
-                        <h2><a href="single.html">Don’t assume your user data in the cloud is safe</a></h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <p><a href="#" class="read-more">Continue Reading</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
     @include('layout.footer')
 
     @section('scripts')
@@ -626,6 +654,19 @@
             this.style.display = 'none'; // Hide the button after showing more comments
         });
     </script>
+    
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
