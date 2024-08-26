@@ -139,21 +139,19 @@ img.custom-size {
   
 </head>
 
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 <body class="font-body">
 
     @include('layout.nav')
     {{-- <div class="banner" >
         <img src="{{ asset('/assets/help-image/help-banner-2.jpg') }}" alt="">
       </div> --}}
-   
-     
 
-
-
-
-
-     
-     
 
     <!-- Start Blog -->
     {{-- <section id="demo" class="py-28">
@@ -195,62 +193,67 @@ img.custom-size {
 </section>   --}}
 
 
- <section class="section bg-light">
+<section class="section bg-light">
     <div class="container">
         <div class="row align-items-stretch retro-layout">
-            <!-- Colonne de gauche avec deux images -->
-            <div class="col-md-4">
-                <a href="{{ route('blog.detail', $mostCommentedArticles[0]->id) }}" class="h-entry mb-30 v-height gradient">
-                    <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[0]->image) }}');"></div>
-                    <div class="text">
-                        <span class="date">{{ $mostCommentedArticles[0]->created_at->format('M d, Y') }}</span>
-                        <h2>{{ $mostCommentedArticles[0]->title }}</h2>
-                    </div>
-                </a>
-                <a href="{{ route('blog.detail', $mostCommentedArticles[1]->id) }}" class="h-entry v-height gradient">
-                    <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[1]->image) }}');"></div>
-                    <div class="text">
-                        <span class="date">{{ $mostCommentedArticles[1]->created_at->format('M d, Y') }}</span>
-                        <h2>{{ $mostCommentedArticles[1]->title }}</h2>
-                    </div>
-                </a>
-            </div>
+            @if($mostCommentedArticles->count() >= 5)
+                <!-- Colonne de gauche avec deux images -->
+                <div class="col-md-4">
+                    <a href="{{ route('blog.detail', $mostCommentedArticles[0]->id) }}" class="h-entry mb-30 v-height gradient">
+                        <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[0]->image) }}');"></div>
+                        <div class="text">
+                            <span class="date">{{ $mostCommentedArticles[0]->created_at->format('M d, Y') }}</span>
+                            <h2>{{ $mostCommentedArticles[0]->title }}</h2>
+                        </div>
+                    </a>
+                    <a href="{{ route('blog.detail', $mostCommentedArticles[1]->id) }}" class="h-entry v-height gradient">
+                        <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[1]->image) }}');"></div>
+                        <div class="text">
+                            <span class="date">{{ $mostCommentedArticles[1]->created_at->format('M d, Y') }}</span>
+                            <h2>{{ $mostCommentedArticles[1]->title }}</h2>
+                        </div>
+                    </a>
+                </div>
 
-            <!-- Colonne centrale avec une image plus large -->
-            <div class="col-md-4">
-                <a href="{{ route('blog.detail', $mostCommentedArticles[2]->id) }}" class="h-entry img-5 h-100 gradient">
-                    <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[2]->image) }}');"></div>
-                    <div class="text">
-                        <span class="date">{{ $mostCommentedArticles[2]->created_at->format('M d, Y') }}</span>
-                        <h2>{{ $mostCommentedArticles[2]->title }}</h2>
-                    </div>
-                </a>
-            </div>
+                <!-- Colonne centrale avec une image plus large -->
+                <div class="col-md-4">
+                    <a href="{{ route('blog.detail', $mostCommentedArticles[2]->id) }}" class="h-entry img-5 h-100 gradient">
+                        <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[2]->image) }}');"></div>
+                        <div class="text">
+                            <span class="date">{{ $mostCommentedArticles[2]->created_at->format('M d, Y') }}</span>
+                            <h2>{{ $mostCommentedArticles[2]->title }}</h2>
+                        </div>
+                    </a>
+                </div>
 
-            <!-- Colonne de droite avec deux images -->
-            <div class="col-md-4">
-                <a href="{{ route('blog.detail', $mostCommentedArticles[3]->id) }}" class="h-entry mb-30 v-height gradient">
-                    <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[3]->image) }}');"></div>
-                    <div class="text">
-                        <span class="date">{{ $mostCommentedArticles[3]->created_at->format('M d, Y') }}</span>
-                        <h2>{{ $mostCommentedArticles[3]->title }}</h2>
-                    </div>
-                </a>
-                <a href="{{ route('blog.detail', $mostCommentedArticles[4]->id) }}" class="h-entry v-height gradient">
-                    <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[4]->image) }}');"></div>
-                    <div class="text">
-                        <span class="date">{{ $mostCommentedArticles[4]->created_at->format('M d, Y') }}</span>
-                        <h2>{{ $mostCommentedArticles[4]->title }}</h2>
-                    </div>
-                </a>
-            </div>
+                <!-- Colonne de droite avec deux images -->
+                <div class="col-md-4">
+                    <a href="{{ route('blog.detail', $mostCommentedArticles[3]->id) }}" class="h-entry mb-30 v-height gradient">
+                        <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[3]->image) }}');"></div>
+                        <div class="text">
+                            <span class="date">{{ $mostCommentedArticles[3]->created_at->format('M d, Y') }}</span>
+                            <h2>{{ $mostCommentedArticles[3]->title }}</h2>
+                        </div>
+                    </a>
+                    <a href="{{ route('blog.detail', $mostCommentedArticles[4]->id) }}" class="h-entry v-height gradient">
+                        <div class="featured-img" style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[4]->image) }}');"></div>
+                        <div class="text">
+                            <span class="date">{{ $mostCommentedArticles[4]->created_at->format('M d, Y') }}</span>
+                            <h2>{{ $mostCommentedArticles[4]->title }}</h2>
+                        </div>
+                    </a>
+                </div>
+            @else
+                <p>Aucun article commenté disponible.</p>
+            @endif
         </div>
     </div>
-</section> 
+</section>
 
 
-{{-- 
-    <section class="section bg-light">
+
+
+    {{-- <section class="section bg-light">
         
 		<div class="container">
 			<div class="row align-items-stretch retro-layout">
@@ -307,7 +310,7 @@ img.custom-size {
 				</div>
 			</div>
 		</div>
-	</section>  --}}
+	</section>   --}}
 
 
 <!-- Contenu de la vue -->
@@ -319,7 +322,9 @@ img.custom-size {
 @else
 <!-- Affichage lorsque des catégories sont disponibles -->
 @foreach($categories as $category)
-    @if($category->articles->isNotEmpty()) <!-- Vérifier que la catégorie a des articles -->
+    {{-- @if($category->articles->isNotEmpty()) <!-- Vérifier que la catégorie a des articles --> --}}
+    @if(optional($category->articles)->isNotEmpty())
+
         <section class="section">
             <div class="container">
                 <div class="row mb-4">

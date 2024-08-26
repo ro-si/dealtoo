@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
-    <link rel="manifest" href="https://dealtoo.co/manifest.json">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
         href="https://dealtoo.co/storage/app/default/ico/apple-touch-icon-144-precomposed.png">
@@ -26,19 +26,19 @@
         href="https://dealtoo.co/storage/app/default/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed"
         href="https://dealtoo.co/storage/app/default/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="https://dealtoo.co/storage/app/default/ico/favicon.png">
+    <link rel="shortcut icon" href="https://dealtoo.co/storage/app/default/ico/favicon.png"> --}}
     <title>Dealtoo - Emploi, Services et Ventes</title>
     <meta name="description" property="description" content="Dealtoo - Emploi, Services et Ventes">
     <meta name="keywords" property="keywords" content="">
 
-    <link rel="canonical" href="https://dealtoo.co/register" />
+    {{-- <link rel="canonical" href="https://dealtoo.co/register" /> --}}
 
     <base target="_top" />
 
     <meta property="og:site_name" content="Dealtoo" />
     <meta property="og:locale" content="fr" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://dealtoo.co/register" />
+    {{-- <meta property="og:url" content="https://dealtoo.co/register" /> --}}
     <meta property="og:image" content="https://dealtoo.co/storage/app/logo/thumb-2000x1000-og-662a2aa528c48.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -50,8 +50,8 @@
 
     <link rel="alternate" type="application/atom+xml" href="https://dealtoo.co/feed" title="My feed">
 
-
-    <link rel="manifest" href="/manifest.json">
+{{-- 
+    <link rel="manifest" href="/manifest.json"> --}}
 
 
     <link href="https://dealtoo.co/css/app.css?id=2b47cdfe9c9843d6d227" rel="stylesheet">
@@ -70,13 +70,13 @@
  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
  <![endif]-->
 
-    <script>
+    {{-- <script>
         paceOptions = {
             elements: true
         };
-    </script>
-    <script src="https://dealtoo.co/assets/plugins/pace/0.4.17/pace.min.js"></script>
-    <script src="https://dealtoo.co/assets/plugins/modernizr/modernizr-custom.js"></script>
+    </script> --}}
+    {{-- <script src="https://dealtoo.co/assets/plugins/pace/0.4.17/pace.min.js"></script>
+    <script src="https://dealtoo.co/assets/plugins/modernizr/modernizr-custom.js"></script> --}}
 
 
 
@@ -1303,158 +1303,105 @@
 
 
                             <div class="row mt-5">
+                                
                                 <div class="col-12">
-                                    <form id="signupForm" class="form-horizontal" method="POST"
-                                        action="https://dealtoo.co/register">
-                                        <input type="hidden" name="_token"
-                                            value="Z1VCHTxeHEPSefFALBfHA7W44K0Z90QQsIoDmUsI" autocomplete="off">
-                                        <div class="form-group mb-3 required" style="display: none"
-                                            aria-hidden="true">
-                                            <input id="entity_field" name="entity_field" type="text"
-                                                value="" autocomplete="nope" tabindex="-1">
-                                            <input name="valid_field" type="text"
-                                                value="eyJpdiI6Iml6NWt2SXlnQmNWVDdqWENDTGZYZmc9PSIsInZhbHVlIjoiWVp3VlAvMXdiMEFFSDZRT3BPVW1aQT09IiwibWFjIjoiY2Q1YmE0YTUyNGFiNmZlY2Q2YzVhMzM4OTA1NzYzODBkMmU5NzdmN2ExZDU3ZDgxNDAxNTZjMGQwMzdiZmJkZSIsInRhZyI6IiJ9"
-                                                autocomplete="off" tabindex="-1">
-                                        </div>
+                                    <form id="signupForm" class="form-horizontal" method="POST" action="{{ route('register') }}">
+                                        @csrf
+                                
                                         <fieldset>
-
-
+                                            <!-- Nom -->
                                             <div class="row mb-3 required">
                                                 <label class="col-md-3 col-form-label">Nom <sup>*</sup></label>
                                                 <div class="col-md-9 col-lg-6">
-                                                    <input name="name" id="name" placeholder="Nom"
-                                                        class="form-control input-md" type="text" value="">
+                                                    <input name="name" id="name" placeholder="Nom" class="form-control input-md" type="text" value="">
                                                     <span class="error" id="nameError"></span>
                                                 </div>
                                             </div>
-
-
-                                            <input id="countryCode" name="country_code" type="hidden"
-                                                value="CI">
-
-
-                                            <input id="emailAuthField" name="auth_field" type="hidden"
-                                                value="email">
-
-
-
+                                
+                                            <!-- Email -->
                                             <div class="row mb-3 auth-field-item required force-to-display">
-                                                <label class="col-md-3 col-form-label pt-0" for="email">Email
-                                                    <sup>*</sup>
-                                                </label>
+                                                <label class="col-md-3 col-form-label pt-0" for="email">Email <sup>*</sup></label>
                                                 <div class="col-md-9 col-lg-6">
                                                     <div class="input-group">
-                                                        <span class="input-group-text"><i
-                                                                class="far fa-envelope"></i></span>
-                                                        <input id="email" name="email" type="email"
-                                                            class="form-control" placeholder="Adresse email"
-                                                            value="">
-
+                                                        <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                                                        <input id="email" name="email" type="email" class="form-control" placeholder="Adresse email" value="">
                                                     </div>
                                                     <span class="error" id="emailError"></span>
                                                 </div>
                                             </div>
-
-
+                                
+                                            <!-- Téléphone -->
                                             <div class="row mb-3 auth-field-item required force-to-display">
-                                                <label class="col-md-3 col-form-label pt-0" for="phone">N° de
-                                                    téléphone
-                                                </label>
+                                                <label class="col-md-3 col-form-label pt-0" for="phone">N° de téléphone</label>
                                                 <div class="col-md-9 col-lg-6">
-                                                    <input id="phone" name="phone"
-                                                        class="form-control input-md" type="tel"
-                                                        placeholder="Exemple: 01 23 45 67 89" value=""
-                                                        autocomplete="off">
+                                                    <input id="phone" name="phone" class="form-control input-md" type="tel" placeholder="Exemple: 01 23 45 67 89" value="" autocomplete="off">
                                                     <input name="phone_country" type="hidden" value="CI">
                                                 </div>
                                             </div>
-
-
+                                
+                                            <!-- Code du Commercial -->
                                             <div class="row mb-3">
-                                                <label class="col-md-3 col-form-label">Code du commercial </label>
+                                                <label class="col-md-3 col-form-label">Code du commercial</label>
                                                 <div class="col-md-9 col-lg-6">
-                                                    <input name="code_commercial" id="code"
-                                                        placeholder="Code du commercial" class="form-control input-md"
-                                                        type="text" value="">
-                                                    <span class="error" id="nameError"></span>
+                                                    <input name="code_commercial" id="code" placeholder="Code du commercial" class="form-control input-md" type="text" value="">
+                                                    <span class="error" id="codeError"></span>
                                                 </div>
                                             </div>
-
-
-
-
+                                
+                                            <!-- Mot de Passe -->
                                             <div class="row mb-3 required">
-                                                <label class="col-md-3 col-form-label" for="password">Mot de passe
-                                                    <sup>*</sup></label>
+                                                <label class="col-md-3 col-form-label" for="password">Mot de passe <sup>*</sup></label>
                                                 <div class="col-md-9 col-lg-6">
                                                     <div class="input-group show-pwd-group mb-2">
-                                                        <input id="password" name="password" type="password"
-                                                            class="form-control" placeholder="Mot de passe"
-                                                            autocomplete="new-password">
-                                                        <span class="icon-append show-pwd">
+                                                        <input id="password" name="password" type="password" class="form-control" placeholder="Mot de passe" autocomplete="new-password">
+                                                        <span class="input-group-text show-pwd">
                                                             <button type="button" class="eyeOfPwd">
                                                                 <i class="far fa-eye-slash"></i>
                                                             </button>
                                                         </span>
                                                     </div>
-                                                    <input id="passwordConfirmation" name="password_confirmation"
-                                                        type="password" class="form-control"
-                                                        placeholder="Confirmation Mot de passe" autocomplete="off">
-                                                    <div class="form-text text-muted">
-                                                        Au moins 8 caractères
-                                                    </div>
+                                                    <input id="passwordConfirmation" name="password_confirmation" type="password" class="form-control" placeholder="Confirmation Mot de passe" autocomplete="off">
+                                                    <div class="form-text text-muted">Au moins 8 caractères</div>
                                                 </div>
                                             </div>
-
-
-
+                                
+                                            <!-- Acceptation des Termes -->
                                             <div class="row mb-1 required">
                                                 <label class="col-md-3 col-form-label"></label>
                                                 <div class="col-md-9">
                                                     <div class="form-check">
-                                                        <input name="accept_terms" id="acceptTerms"
-                                                            class="form-check-input" value="1" type="checkbox">
-                                                        <label class="form-check-label" for="acceptTerms"
-                                                            style="font-weight: normal;">
-                                                            J'ai lu et j'accepte les <a href="#">Termes &
-                                                                Conditions</a> d'utilisation
+                                                        <input name="accept_terms" id="acceptTerms" class="form-check-input" value="1" type="checkbox" required>
+                                                        <label class="form-check-label" for="acceptTerms" style="font-weight: normal;">
+                                                            J'ai lu et j'accepte les <a href="#">Termes & Conditions</a> d'utilisation
                                                         </label>
                                                     </div>
-                                                    <div style="clear:both"></div>
                                                 </div>
                                             </div>
-
-
+                                
+                                            <!-- Offres Marketing -->
                                             <div class="row mb-3 required">
                                                 <label class="col-md-3 col-form-label"></label>
                                                 <div class="col-md-9">
                                                     <div class="form-check">
-                                                        <input name="accept_marketing_offers"
-                                                            id="acceptMarketingOffers" class="form-check-input"
-                                                            value="1" type="checkbox">
-                                                        <label class="form-check-label" for="acceptMarketingOffers"
-                                                            style="font-weight: normal;">
+                                                        <input name="accept_marketing_offers" id="acceptMarketingOffers" class="form-check-input" value="1" type="checkbox">
+                                                        <label class="form-check-label" for="acceptMarketingOffers" style="font-weight: normal;">
                                                             J'accepte de recevoir des e-mails marketing
                                                         </label>
                                                     </div>
-                                                    <div style="clear:both"></div>
                                                 </div>
                                             </div>
-
-
+                                
+                                            <!-- Bouton d'inscription -->
                                             <div class="row mb-3">
                                                 <label class="col-md-3 col-form-label"></label>
                                                 <div class="col-md-7">
-                                                    <button id="signupBtn" class="btn btn-primary btn-lg">
-                                                        S&#039;inscrire </button>
+                                                    <button id="signupBtn" class="btn btn-primary btn-lg">S'inscrire</button>
                                                 </div>
                                             </div>
-
-                                            <div class="mb-4"></div>
-
                                         </fieldset>
                                     </form>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -1532,7 +1479,8 @@
                         </div>
 
                         <div class="col">
-                            <div class="footer-col">
+                            <div class="
+                            ooter-col">
                                 <h4 class="footer-title">Mon compte</h4>
                                 <ul class="list-unstyled footer-nav">
                                     <li>
@@ -1894,7 +1842,7 @@
 
 
 
-    <script>
+    {{-- <script>
         var siteUrl = 'https://dealtoo.co';
         var languageCode = 'fr';
         var isLogged = false;
@@ -2014,14 +1962,14 @@
             }
 
             // Ferme le modal lorsque le bouton est cliqué
-            closeModalButton.addEventListener('click', () => {
-                modal.style.display = 'none';
-                localStorage.removeItem(
-                'modalCountdown'); // Efface le décompte lors de la fermeture du modal
-            });
+            // closeModalButton.addEventListener('click', () => {
+            //     modal.style.display = 'none';
+            //     localStorage.removeItem(
+            //     'modalCountdown'); // Efface le décompte lors de la fermeture du modal
+            // });
 
-            // Initialiser le modal caché
-            modal.style.display = 'none';
+            // // Initialiser le modal caché
+            // modal.style.display = 'none';
 
             // Affiche le modal après une courte attente si les conditions sont remplies
             setTimeout(() => {
@@ -2034,11 +1982,11 @@
             updateCarousel();
             setInterval(autoplay, autoplayInterval);
         });
-    </script>
+    </script> --}}
 
 
 
-    <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             const carousel = document.querySelector('.carousel');
             const slides = document.querySelectorAll('.slide');
@@ -2141,10 +2089,10 @@
             updateCarousel();
             setInterval(autoplay, autoplayInterval);
         });
-    </script>
+    </script> --}}
 
 
-    <script>
+    {{-- <script>
         var countryCode = 'CI';
         var timerNewMessagesChecking = 8000;
 
@@ -2194,13 +2142,13 @@
             errorFound: "Une erreur a été trouvée"
         };
         var refreshBtnText = "Rafraîchir";
-    </script>
+    </script> --}}
 
 
-    <script src="https://dealtoo.co/common/js/intl-tel-input/countries.js"></script>
+    {{-- <script src="https://dealtoo.co/common/js/intl-tel-input/countries.js"></script>
     <script src="https://dealtoo.co/js/app.js?id=5d393bf80be1e3f06f27"></script>
-    <script src="https://dealtoo.co/assets/plugins/select2/js/i18n/fr.js"></script>
-    <script>
+    <script src="https://dealtoo.co/assets/plugins/select2/js/i18n/fr.js"></script> --}}
+    {{-- <script>
         $(document).ready(function() {
 
             let largeDataSelect2Params = {
@@ -2233,8 +2181,8 @@
 
 
         });
-    </script>
-
+    </script> --}}
+{{-- 
     <script>
         $(document).ready(function() {
             // Vérification du nom pendant la saisie
@@ -2319,7 +2267,7 @@
                 return digitCount;
             }
         });
-    </script>
+    </script> --}}
 
 
 

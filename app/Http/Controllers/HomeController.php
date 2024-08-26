@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Comment; // Assurez-vous d'importer le modèle Comment
-
-
-
 class HomeController extends Controller
 {
     // public function detail()
@@ -31,6 +28,8 @@ class HomeController extends Controller
             // Retrieve the comments for the current article
             $comments = Comment::where('article_id', $id)->get();
         
+            $commentCount = $comments->count(); // Nombre total de commentaires
+
             // Retrieve similar articles based on the same category
             $similarPosts = Article::where('category_id', $article->category_id)
                                     ->where('id', '!=', $id) // Exclude the current article
@@ -42,13 +41,15 @@ class HomeController extends Controller
                 ->orderBy('comments_count', 'desc')
                 ->take(3) // Limit the number of popular posts
                 ->get();
-        
+                   
             // Return the view with the data
             return view('partial.detail', [
                 'article' => $article,
                 'comments' => $comments,
                 'similarPosts' => $similarPosts,
-                'popularPosts' => $popularPosts
+                'popularPosts' => $popularPosts,
+                'commentCount' => $commentCount,
+              
             ]);
         }
         
@@ -74,8 +75,8 @@ class HomeController extends Controller
          // Retrieve all articles
          $articles = Article::all();
         
-         // Retrieve all categories
-         $categories = Category::all();
+        // Retrieve all categories with their associated articles
+    $categories = Category::with('articles')->get();
          
          // Retrieve the most commented articles (assuming you want the top 5 most commented articles)
          $mostCommentedArticles = Article::withCount('comments') // Make sure you have a 'comments' relationship in the Article model

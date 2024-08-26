@@ -69,8 +69,8 @@ class CategoryController extends Controller
             ->take(3)
             ->get();
 
-             // Récupérer les articles similaires basés sur la même catégorie (3 articles par défaut)
-    $similarPosts = Article::getSimilarArticles($category->id, $articleIds, 4);  // Spécifier 4 ici
+    //          // Récupérer les articles similaires basés sur la même catégorie (3 articles par défaut)
+    // $similarPosts = Article::getSimilarArticles($category->id, $articleIds, 4);  // Spécifier 4 ici
 
     
         // Récupérer les articles les plus populaires basés sur le nombre de commentaires

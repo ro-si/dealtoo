@@ -92,17 +92,18 @@
                   <a class="nav-link" href="#">Blog</a>
               </li>
           </ul>
-          <button type="button" class="btn btn-primary ms-2 d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#addArticleModal">
-              Ajouter un Article
-          </button>
-          {{-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addArticleModal">
-            Ajouter un Article
-        </button> --}}
+          @if (Session::has('user'))
+              <span class="navbar-text ms-2">Welcome, {{ Session::get('user')['name'] }}!</span>
+          @else
+              <button type="button" class="btn btn-primary ms-2 d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#addArticleModal">
+                  Ajouter un Article
+              </button>
+          @endif
       </div>
   </div>
-
- 
 </nav>
+
+
 <style>
   nav {
     padding: 13px 100px;

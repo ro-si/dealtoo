@@ -26,5 +26,12 @@ class Article extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function getSimilarArticles($limit = 3)
+    {
+        return self::where('category_id', $this->category_id)
+                    ->where('id', '!=', $this->id)
+                    ->take($limit)
+                    ->get();
+    }
 
 }
