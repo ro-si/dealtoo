@@ -321,9 +321,9 @@ img.custom-size {
 </div>
 @else
 <!-- Affichage lorsque des catégories sont disponibles -->
-@foreach($categories as $category)
+{{-- @foreach($categories as $category) --}}
     {{-- @if($category->articles->isNotEmpty()) <!-- Vérifier que la catégorie a des articles --> --}}
-    @if(optional($category->articles)->isNotEmpty())
+    {{-- @if(optional($category->articles)->isNotEmpty()) --}}
 
         <section class="section">
             <div class="container">

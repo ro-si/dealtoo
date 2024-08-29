@@ -88,9 +88,9 @@
               <li class="nav-item">
                   <a class="nav-link" href="{{ url('/') }}"><i class="fas fa-home"></i> Accueil</a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                   <a class="nav-link" href="#">Blog</a>
-              </li>
+              </li> --}}
           </ul>
           @if (Session::has('user'))
               <span class="navbar-text ms-2">Welcome, {{ Session::get('user')['name'] }}!</span>
