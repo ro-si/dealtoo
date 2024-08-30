@@ -72,23 +72,21 @@ class HomeController extends Controller
 
     public function index()
     {
-         // Retrieve all articles
-         $articles = Article::all();
+        // Retrieve all articles
+        $articles = Article::all();
         
         // Retrieve all categories with their associated articles
-    $categories = Category::with('articles')->get();
-         
-         // Retrieve the most commented articles (assuming you want the top 5 most commented articles)
-         $mostCommentedArticles = Article::withCount('comments') // Make sure you have a 'comments' relationship in the Article model
-                                       ->orderBy('comments_count', 'desc')
-                                       ->take(5)
-                                       ->get();
- 
-   
-         // Pass the articles, categories, and most commented articles to the view
-         return view('welcome', compact('articles', 'categories', 'mostCommentedArticles'));
-   
-   
+        $categories = Category::with('articles')->get();
+        
+        // Retrieve the most commented articles
+        $mostCommentedArticles = Article::withCount('comments')
+                                        ->orderBy('comments_count', 'desc')
+                                        ->take(5)
+                                        ->get();
+    
+        // Pass the articles, categories, and most commented articles to the view
+        return view('welcome', compact('articles', 'categories', 'mostCommentedArticles'));
     }
+    
 
 }
