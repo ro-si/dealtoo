@@ -278,7 +278,8 @@
                                         @endif
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $article->title }}</h5>
-                                            <p class="card-text">{{ Str::limit($article->body, 100) }}</p>
+                                            <p class="card-text">{{ Str::limit(strip_tags($article->body), 100) }}</p>
+
                                             <a href="{{ route('blog.detail', $article->id) }}"
                                                 class="btn btn-primary">Lire
                                                 la suite</a>
