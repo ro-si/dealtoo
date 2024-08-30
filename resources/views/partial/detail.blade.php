@@ -82,10 +82,7 @@
                     <div class="post-content-body">
                         {!! $article->body !!}
                     </div>
-                    <div class="pt-5">
-                        <p>Categories: <a href="#">Food</a>, <a href="#">Travel</a> Tags: <a
-                                href="#">#manila</a>, <a href="#">#asia</a></p>
-                    </div>
+                   
 
                     @if (Session::has('user'))
                         {{-- <p>Welcome, {{ Session::get('user')['name'] }}!</p> --}}

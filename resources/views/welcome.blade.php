@@ -159,22 +159,7 @@
 <body class="font-body">
 
     @include('layout.nav')
-    {{-- <div class="banner" >
-        <img src="{{ asset('/assets/help-image/help-banner-2.jpg') }}" alt="">
-      </div> --}}
-
-
-    <!-- Start Blog -->
-    {{-- <section id="demo" class="py-28">
-        <div class="container">
-            <div class="max-w-md mx-auto text-center relative overflow-hidden h-16 text-container">
-                <h2 class="text-3xl">"Les Tendances du Moment sur <span>Dealtoo</span>  "</h2>
-                <p id="animated-text" class="font-medium mt-2 mb-6"></p>
-            </div><!-- end max-w -->
-
-          
-        </div><!-- end container -->
-    </section> --}}
+  
 
 
     <div class="marquee">
@@ -182,26 +167,7 @@
     </div>
 
    
-    {{-- pour afficher les article demm categorie  --}}
-    {{-- <section class="section bg-light">
-    <div class="container">
-        <div class="row align-items-stretch retro-layout">
-            @foreach ($mostCommentedArticles as $article)
-                <div class="col-md-4">
-                    <a href="{{ route('blog.detail', $article->id) }}" class="h-entry mb-30 v-height gradient" >
-                        <div class="featured-img" style="background-image: url('{{ $article->image_url ?? 'default_image.jpg' }}');"> 
-                          <img src="{{ asset('assets/' . $article->image) }}" alt="{{ $article->title }}" class="card-img-top custom-size">
-                        </div>
-                        <div class="text">
-                            <span class="date">{{ $article->created_at->format('M d, Y') }}</span>
-                            <h2>{{ $article->title }}</h2>
-                        </div>
-                    </a>
-                </div>
-            @endforeach
-        </div>
-    </div>
-</section>   --}}
+    
 
 <section class="section bg-light">
     <div class="container">
@@ -383,10 +349,11 @@
 
     @include('layout.footer')
 
+    <script src="https://cdn.ckeditor.com/ckeditor5/ckeditor.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         ClassicEditor
-            .create(document.querySelector('#editor'), {
+            .create(document.querySelector('#body'), {
                 toolbar: {
                     items: [
                         'heading',
@@ -427,7 +394,8 @@
                 console.error(error);
             });
     });
-</script> 
+    </script>
+    
 
 
 
