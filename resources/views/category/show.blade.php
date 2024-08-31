@@ -562,9 +562,9 @@
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
-                        <a href="https://dealtoo.co/category/automobiles" class="card-link">
-                            <i class="fas fa-car fa-2x mb-2"></i>
-                            <h6>Auto & Moto</h6>
+                        <a href="" class="card-link">
+                            <i class="fas fa-newspaper fa-2x mb-2"></i>
+                            <h6>Actualités Dealtoo</h6>
                         </a>
                     </div>
                 </div>
@@ -572,9 +572,9 @@
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
-                        <a href="https://dealtoo.co/category/phones-and-tablets" class="card-link">
-                            <i class="fas fa-mobile-alt fa-2x mb-2"></i>
-                            <h6>Téléphones Mobiles</h6>
+                        <a href="" class="card-link">
+                            <i class="fas fa-trophy fa-2x mb-2"></i>
+                            <h6>Histoires de Succès</h6>
                         </a>
                     </div>
                 </div>
@@ -582,9 +582,9 @@
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
-                        <a href="https://dealtoo.co/category/electronics" class="card-link">
-                            <i class="fas fa-laptop fa-2x mb-2"></i>
-                            <h6>Hi-Tech</h6>
+                        <a href="" class="card-link">
+                            <i class="fas fa-lightbulb fa-2x mb-2"></i>
+                            <h6>Astuces et Trucs</h6>
                         </a>
                     </div>
                 </div>
@@ -592,9 +592,9 @@
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
-                        <a href="https://dealtoo.co/category/furniture-appliances" class="card-link">
-                            <i class="fas fa-couch fa-2x mb-2"></i>
-                            <h6>Meubles & Electroménagers</h6>
+                        <a href="" class="card-link">
+                            <i class="fas fa-chalkboard-teacher fa-2x mb-2"></i>
+                            <h6>Guides et Tutoriels</h6>
                         </a>
                     </div>
                 </div>
@@ -602,9 +602,9 @@
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
-                        <a href="https://dealtoo.co/category/real-estate" class="card-link">
-                            <i class="fas fa-home fa-2x mb-2"></i>
-                            <h6>Immobilier</h6>
+                        <a href="" class="card-link">
+                            <i class="fas fa-users fa-2x mb-2"></i>
+                            <h6>Événements et Communauté</h6>
                         </a>
                     </div>
                 </div>
@@ -612,9 +612,9 @@
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
-                        <a href="https://dealtoo.co/category/animals-and-pets" class="card-link">
-                            <i class="fas fa-paw fa-2x mb-2"></i>
-                            <h6>Animaux</h6>
+                        <a href="" class="card-link">
+                            <i class="fas fa-question-circle fa-2x mb-2"></i>
+                            <h6>FAQ</h6>
                         </a>
                     </div>
                 </div>
@@ -622,9 +622,9 @@
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
-                        <a href="https://dealtoo.co/category/fashion" class="card-link">
-                            <i class="fas fa-tshirt fa-2x mb-2"></i>
-                            <h6>Mode</h6>
+                        <a href="" class="card-link">
+                            <i class="fas fa-bullhorn fa-2x mb-2"></i>
+                            <h6>Marketing et Promotion</h6>
                         </a>
                     </div>
                 </div>
@@ -632,9 +632,9 @@
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
-                        <a href="https://dealtoo.co/category/beauty-well-being" class="card-link">
-                            <i class="fas fa-spa fa-2x mb-2"></i>
-                            <h6>Beauté et bien-être</h6>
+                        <a href="" class="card-link">
+                            <i class="fas fa-calendar-alt fa-2x mb-2"></i>
+                            <h6>Événements</h6>
                         </a>
                     </div>
                 </div>
@@ -642,9 +642,9 @@
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
-                        <a href="https://dealtoo.co/category/jobs" class="card-link">
-                            <i class="fas fa-briefcase fa-2x mb-2"></i>
-                            <h6>Emplois</h6>
+                        <a href="" class="card-link">
+                            <i class="fas fa-user fa-2x mb-2"></i>
+                            <h6>Développement Personnel</h6>
                         </a>
                     </div>
                 </div>
@@ -652,9 +652,9 @@
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
-                        <a href="https://dealtoo.co/category/services" class="card-link">
-                            <i class="fas fa-clipboard-list fa-2x mb-2"></i>
-                            <h6>Services</h6>
+                        <a href="" class="card-link">
+                            <i class="fas fa-chart-line fa-2x mb-2"></i>
+                            <h6>Analyses de Marché</h6>
                         </a>
                     </div>
                 </div>
@@ -662,9 +662,9 @@
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
-                        <a href="https://dealtoo.co/category/learning" class="card-link">
-                            <i class="fas fa-graduation-cap fa-2x mb-2"></i>
-                            <h6>Apprentissage</h6>
+                        <a href="" class="card-link">
+                            <i class="fas fa-shield-alt fa-2x mb-2"></i>
+                            <h6>Sécurité</h6>
                         </a>
                     </div>
                 </div>
@@ -672,15 +672,16 @@
             <div class="col">
                 <div class="card text-center h-100">
                     <div class="card-body">
-                        <a href="https://dealtoo.co/category/local-events" class="card-link">
-                            <i class="far fa-calendar-alt fa-2x mb-2"></i>
-                            <h6>Evénements</h6>
+                        <a href="" class="card-link">
+                            <i class="fas fa-tags fa-2x mb-2"></i>
+                            <h6>Catégories de Produits</h6>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 
 
 

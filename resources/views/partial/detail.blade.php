@@ -293,18 +293,20 @@
                     <div class="sidebar-box">
                         <h3 class="heading">Catégories</h3>
                         <ul class="tags">
-                            <li><a href="#">Auto et Moto </a></li>
-                            <li><a href="#">Téléphone Mobile</a></li>
-                            <li><a href="#">Hi-Tech</a></li>
-                            <li><a href="#">Meuble et Electroménagers</a></li>
-                            <li><a href="#">Immobilier</a></li>
-                            <li><a href="#">Animaux</a></li>
-                            <li><a href="#">Mode</a></li>
-                            <li><a href="#">Beauté et Bien etre</a></li>
-                            <li><a href="#">Emplois</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Apprentissages</a></li>
-                            <li><a href="#">Evènements</a></li>
+                            <li><a href="#">Actualités Dealtoo</a></li>
+                            <li><a href="#">Histoires de Succès</a></li>
+                            <li><a href="#">Astuces et Trucs</a></li>
+                            <li><a href="#">Guides et Tutoriels</a></li>
+                            <li><a href="#">Événements et Communauté</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Marketing et Promotion</a></li>
+                            <li><a href="#">Événements</a></li>
+                            <li><a href="#">Développement Personnel</a></li>
+                            <li><a href="#">Analyses de Marché</a></li>
+                            <li><a href="#">Sécurité</a></li>
+                            <li><a href="#">Catégories de Produits</a></li>
+                           
+                          
                         </ul>
                     </div>
 

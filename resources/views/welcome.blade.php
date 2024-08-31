@@ -3,47 +3,50 @@
 
 <head>
     <meta charset="utf-8" />
-    <title> Blog-dealtoo</title>
+    <title>Blog-dealtoo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta
         content="Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML, Tailwindcss Blog Section, Blog Section For Tailwind CSS Template Section"
         name="description" />
     <meta content="Techzaa" name="author" />
 
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
 
-    <!-- Google Font Link -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Style css -->
-    <link href="assets/css/style.min.css" rel="stylesheet" type="text/css">
+    <!-- Main CSS -->
+    <link href="{{ asset('assets/css/style.min.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('fonts/flaticon/font/flaticon.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 
+            <!-- Bootstrap 5.3.0 JS Bundle (includes Popper) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+        <!-- Bootstrap 5.3.0 CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- CKEditor -->
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
 
-    <!-- JavaScript jQuery et Bootstrap pour le modal ajouté -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
 
+    <!-- Bootstrap JavaScript -->
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-
-    <link rel="stylesheet" href="css/tiny-slider.css">
-
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Tiny Slider (Optional, if used in your project) -->
+    <script src="{{ asset('js/tiny-slider.js') }}"></script>
 
     <style>
         span {
@@ -159,84 +162,90 @@
 <body class="font-body">
 
     @include('layout.nav')
-  
+
 
 
     <div class="marquee">
-        <span class="spann">Bienvenue sur BlogDealtoo ! Profitez de nos services exceptionnels et découvrez nos offres spéciales. Ne manquez pas nos dernières nouveautés !</span>
+        <span class="spann">Bienvenue sur BlogDealtoo ! Profitez de nos services exceptionnels et découvrez nos offres
+            spéciales. Ne manquez pas nos dernières nouveautés !</span>
     </div>
 
-   
-    
 
-<section class="section bg-light">
-    <div class="container">
-        <div class="row align-items-stretch retro-layout">
-            @if ($mostCommentedArticles->count() >= 5)
-                <div class="col-md-4">
-                    <a href="{{ route('blog.detail', $mostCommentedArticles[0]->id) }}"
-                        class="h-entry mb-30 v-height gradient">
-                        <div class="featured-img"
-                            style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[0]->image) }}');">
-                        </div>
-                        <div class="text">
-                            <span class="date">{{ $mostCommentedArticles[0]->created_at->format('M d, Y') }}</span>
-                            <h2>{{ $mostCommentedArticles[0]->title }}</h2>
-                        </div>
-                    </a>
-                    <a href="{{ route('blog.detail', $mostCommentedArticles[1]->id) }}"
-                        class="h-entry v-height gradient">
-                        <div class="featured-img"
-                            style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[1]->image) }}');">
-                        </div>
-                        <div class="text">
-                            <span class="date">{{ $mostCommentedArticles[1]->created_at->format('M d, Y') }}</span>
-                            <h2>{{ $mostCommentedArticles[1]->title }}</h2>
-                        </div>
-                    </a>
-                </div>
 
-                <div class="col-md-4">
-                    <a href="{{ route('blog.detail', $mostCommentedArticles[2]->id) }}"
-                        class="h-entry img-5 h-100 gradient">
-                        <div class="featured-img"
-                            style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[2]->image) }}');">
-                        </div>
-                        <div class="text">
-                            <span class="date">{{ $mostCommentedArticles[2]->created_at->format('M d, Y') }}</span>
-                            <h2>{{ $mostCommentedArticles[2]->title }}</h2>
-                        </div>
-                    </a>
-                </div>
 
-                <div class="col-md-4">
-                    <a href="{{ route('blog.detail', $mostCommentedArticles[3]->id) }}"
-                        class="h-entry mb-30 v-height gradient">
-                        <div class="featured-img"
-                            style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[3]->image) }}');">
-                        </div>
-                        <div class="text">
-                            <span class="date">{{ $mostCommentedArticles[3]->created_at->format('M d, Y') }}</span>
-                            <h2>{{ $mostCommentedArticles[3]->title }}</h2>
-                        </div>
-                    </a>
-                    <a href="{{ route('blog.detail', $mostCommentedArticles[4]->id) }}"
-                        class="h-entry v-height gradient">
-                        <div class="featured-img"
-                            style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[4]->image) }}');">
-                        </div>
-                        <div class="text">
-                            <span class="date">{{ $mostCommentedArticles[4]->created_at->format('M d, Y') }}</span>
-                            <h2>{{ $mostCommentedArticles[4]->title }}</h2>
-                        </div>
-                    </a>
-                </div>
-            @else
-                <p>Aucun article commenté disponible.</p>
-            @endif
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row align-items-stretch retro-layout">
+                @if ($mostCommentedArticles->count() >= 5)
+                    <div class="col-md-4">
+                        <a href="{{ route('blog.detail', $mostCommentedArticles[0]->id) }}"
+                            class="h-entry mb-30 v-height gradient">
+                            <div class="featured-img"
+                                style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[0]->image) }}');">
+                            </div>
+                            <div class="text">
+                                <span
+                                    class="date">{{ $mostCommentedArticles[0]->created_at->format('M d, Y') }}</span>
+                                <h2>{{ $mostCommentedArticles[0]->title }}</h2>
+                            </div>
+                        </a>
+                        <a href="{{ route('blog.detail', $mostCommentedArticles[1]->id) }}"
+                            class="h-entry v-height gradient">
+                            <div class="featured-img"
+                                style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[1]->image) }}');">
+                            </div>
+                            <div class="text">
+                                <span
+                                    class="date">{{ $mostCommentedArticles[1]->created_at->format('M d, Y') }}</span>
+                                <h2>{{ $mostCommentedArticles[1]->title }}</h2>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="{{ route('blog.detail', $mostCommentedArticles[2]->id) }}"
+                            class="h-entry img-5 h-100 gradient">
+                            <div class="featured-img"
+                                style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[2]->image) }}');">
+                            </div>
+                            <div class="text">
+                                <span
+                                    class="date">{{ $mostCommentedArticles[2]->created_at->format('M d, Y') }}</span>
+                                <h2>{{ $mostCommentedArticles[2]->title }}</h2>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <a href="{{ route('blog.detail', $mostCommentedArticles[3]->id) }}"
+                            class="h-entry mb-30 v-height gradient">
+                            <div class="featured-img"
+                                style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[3]->image) }}');">
+                            </div>
+                            <div class="text">
+                                <span
+                                    class="date">{{ $mostCommentedArticles[3]->created_at->format('M d, Y') }}</span>
+                                <h2>{{ $mostCommentedArticles[3]->title }}</h2>
+                            </div>
+                        </a>
+                        <a href="{{ route('blog.detail', $mostCommentedArticles[4]->id) }}"
+                            class="h-entry v-height gradient">
+                            <div class="featured-img"
+                                style="background-image: url('{{ asset('assets/' . $mostCommentedArticles[4]->image) }}');">
+                            </div>
+                            <div class="text">
+                                <span
+                                    class="date">{{ $mostCommentedArticles[4]->created_at->format('M d, Y') }}</span>
+                                <h2>{{ $mostCommentedArticles[4]->title }}</h2>
+                            </div>
+                        </a>
+                    </div>
+                @else
+                    <p>Aucun article commenté disponible.</p>
+                @endif
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 
@@ -297,6 +306,7 @@
 
 
     <!-- Modal pour ajouter un article -->
+    <!-- Modal -->
     <div class="modal fade" id="addArticleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -330,7 +340,6 @@
                             </select>
                         </div>
 
-
                         <div class="form-group">
                             <label for="image">Image</label>
                             <input type="file" class="form-control-file" id="image" name="image"
@@ -350,53 +359,51 @@
 
     @include('layout.footer')
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/ckeditor.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        ClassicEditor
-            .create(document.querySelector('#body'), {
-                toolbar: {
-                    items: [
-                        'heading',
-                        '|',
-                        'bold',
-                        'italic',
-                        'link',
-                        'bulletedList',
-                        'numberedList',
-                        'blockQuote',
-                        '|',
-                        'undo',
-                        'redo'
-                    ]
-                },
-                heading: {
-                    options: [
-                        {
-                            model: 'paragraph',
-                            title: 'Paragraph',
-                            class: 'ck-heading_paragraph'
-                        },
-                        {
-                            model: 'heading1',
-                            title: 'Heading 1',
-                            class: 'ck-heading_heading1'
-                        },
-                        {
-                            model: 'heading2',
-                            title: 'Heading 2',
-                            class: 'ck-heading_heading2'
-                        }
-                    ]
-                }
-                // Additional configurations can be added here
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    });
+        document.addEventListener('DOMContentLoaded', function() {
+            ClassicEditor
+                .create(document.querySelector('#body'), {
+                    toolbar: {
+                        items: [
+                            'heading',
+                            '|',
+                            'bold',
+                            'italic',
+                            'link',
+                            'bulletedList',
+                            'numberedList',
+                            'blockQuote',
+                            '|',
+                            'undo',
+                            'redo'
+                        ]
+                    },
+                    heading: {
+                        options: [{
+                                model: 'paragraph',
+                                title: 'Paragraph',
+                                class: 'ck-heading_paragraph'
+                            },
+                            {
+                                model: 'heading1',
+                                title: 'Heading 1',
+                                class: 'ck-heading_heading1'
+                            },
+                            {
+                                model: 'heading2',
+                                title: 'Heading 2',
+                                class: 'ck-heading_heading2'
+                            }
+                        ]
+                    }
+                    // Additional configurations can be added here
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        });
     </script>
-    
+
 
 
 
